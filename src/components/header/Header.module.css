@@ -37,3 +37,46 @@ nav {
   font-weight: 600;
   list-style-type: none;
 }
+
+
+@media screen and (max-width: 700px) {
+  nav {
+  display: flex;
+  width: 100%;
+  height: auto;
+  
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-color);
+  border: solid 1px var(--primary-color);
+  font-size: 1.5vh;
+}
+
+.logo {
+  padding-left: 0%;
+
+}
+.logo > figure {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 140px;
+  height: 60px;
+}
+
+.header > h1 {
+  font-size: 1vh;
+
+}
+
+.date {
+  padding-right: 2%;
+  padding-left: 1%;
+  font-weight: 400;
+
+  font-size: 1vh;
+  flex-wrap: wrap;
+}
+
+  
+}

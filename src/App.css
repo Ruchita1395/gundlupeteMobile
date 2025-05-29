@@ -108,7 +108,7 @@ body {
   transition: all 1s ease-in-out;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 725px) {
   .sidebar {
     width: 4.5%;
     height: 60%;
@@ -208,11 +208,10 @@ body {
   top: 39.5%;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 725px) {
   .wtp-outlet {
     width: 100%;
     height: 130vh;
-    border: solid 1px rgb(0, 76, 255);
     position: none;
   }
 
@@ -220,13 +219,13 @@ body {
     width: 100%;
     height: 50%;
     transform: translate(0%, 0%);
-    border: solid 1px rgb(13, 14, 15);
+  
   }
 
   .second-tank {
     width: 100%;
     height: 50%;
-    border: solid 1px rgb(13, 14, 15);
+  
     position: static;
     display: flex;
     align-items: center;
@@ -288,7 +287,7 @@ body {
   left: 0%;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 725px) {
   .ips {
     width: 95%;
     height: 100vh;
@@ -470,7 +469,7 @@ body {
   color: gray;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 725px) {
   .distribution {
     width: 98%;
     /* height: 100vh; */
@@ -484,19 +483,20 @@ body {
   .tank-containar {
     width: 100%;
     height: 100%;
-    border: #000 solid 1px;
     display: flex;
     flex-direction: column ;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-   
+    
+    box-shadow: rgb(38, 57, 77) 0px 0px 30px -10px;
+
   }
   .mbr-containar {
-    width: 85%;
-    height: 50%;
+    width: 90%;
+    height: 80%;
     padding: 1%;
-    border: #2944c9 solid 1px;
+    margin: 5%;
   }
   .mbr-tank {
     width: 100%;
@@ -509,12 +509,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    
   }
 
   .all-tank {
-    width: 100%;
+    width: 90%;
     height: 100%;
     padding: 1%;
+      /* display: flex;
+      align-items: center;
+      justify-content: center; */
+
   }
   .tank-adjiustment-distribution {
     width: 100%;
@@ -530,8 +536,9 @@ body {
     width: 90%;
     height: 20%;
     text-align: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+ 
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -549,12 +556,12 @@ body {
 
   .tankTitle {
     color: #249bd3;
-    font-size: 2vh;
-    font-weight: 600;
+    font-size: 1.5vh;
+    font-weight: 500;
   }
 
   .waterLevel {
-    font-size: 2vh;
+    font-size: 1.5vh;
   }
 
   .waterLevel span {
@@ -562,7 +569,7 @@ body {
   }
 
   .update {
-    font-size: 1.5vh;
+    font-size: 1vh;
     color: gray;
   }
 }
