@@ -1,0 +1,39 @@
+nav {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-color);
+  border: solid 1px var(--primary-color);
+  font-size: 2vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  color: var(--primary-color);
+}
+.logo > figure {
+  background-image: url("../images/logo.png");
+  background-size: cover;
+  background-position: center;
+  width: 260px;
+  height: 80px;
+  border: white 1px solid;
+}
+
+.header {
+  width: 30%;
+  height: auto;
+  text-align: center;  
+  
+}
+
+.date {
+  padding-right: 2%;
+  font-weight: 600;
+  list-style-type: none;
+}

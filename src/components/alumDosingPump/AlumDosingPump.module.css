@@ -1,0 +1,62 @@
+.alumdosing-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.verticalPipe-adjustment {
+  width: 5%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  z-index: -99;
+}
+
+.alum-dosing-image-container {
+  width: 20%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  position: absolute;
+  top: 70%;
+  left: 40%;
+}
+
+.alum-dosing-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 99;
+  mix-blend-mode: multiply;
+}
+.alum-dosing-image-container > h4 {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  color: #000;
+  font-weight: 500;
+  font-size: 2vh;
+  text-transform: uppercase;
+}
+
+.pipe-Oultet-adjustment {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 9%;
+
+}

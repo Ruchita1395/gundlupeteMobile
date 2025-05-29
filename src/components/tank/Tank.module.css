@@ -1,0 +1,235 @@
+.tank-containar {
+  /* width: 45%; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* flex-direction: row-reverse; */
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.pipe-inlet-container {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  /* transform: translate(0% 50%); */
+}
+.pipe-inlet-adjuestment {
+  width: 100%;
+  height: 50%;
+  min-height: 20px;
+  position: absolute;
+  left: 0%;
+  top: 10%;
+}
+
+.pipe-outlet-container {
+  /* flex: 1; */
+  width: 20%;
+  height: 100%;
+  position: relative;
+  /* height: 50%; */
+}
+.pipe-outlet-adjuestment {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  left: 0%;
+  top: 30%;
+  display: flex;
+  align-items: center;
+}
+.bottom {
+  top: 25%;
+}
+.center {
+  top: 15%;
+}
+.top {
+  top: 0%;
+}
+
+.main-container {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.level-sensor-container {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+
+  top: 3%;
+  font-weight: 500;
+  font-size: 2vh;
+  z-index: -100;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 2%;
+}
+.level-sensor-container > img {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.tank {
+  /* width: 40%;
+  height: 40%; */
+  width: 100%;
+  height: 40%;
+  border-radius: 0% 0% 20% 20%;
+  background-color: #e3e3e6;
+  overflow: hidden;
+  position: relative;
+  border-top: none;
+  box-shadow: inset 10px 0px 50px 0px rgba(0, 0, 0, 0.3);
+  /* transform: translate(0%, -14%); */
+}
+
+.tank-cap {
+  /* width: 0;
+  border-bottom: 8vh solid #e3e3e6;
+  border-left: 10vw solid transparent;
+  border-right: 10vw solid transparent; */
+  width: 105%;
+  height: 8%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: absolute;
+  top: 22%;
+  /* top: 21.5%; */
+  background-color: #e3e3e6;
+  box-shadow: inset 0px 0px 20px 5px rgba(0.8, 0.8, 0, 0.1);
+}
+
+.base {
+  background-color: #e3e3e6;
+  width: 50%;
+  height: 1.5%;
+  position: absolute;
+  top: 71%;
+  /* left: 25%; */
+  transform: translate(0%, -50%);
+}
+
+.columnleft {
+  width: 2.5%;
+  height: 28%;
+  background-color: #e3e3e6;
+  position: absolute;
+  top: 70%;
+  left: 18%;
+  transform: rotate(12deg);
+}
+
+.columnright {
+  width: 2.5%;
+  height: 28%;
+  background-color: #e3e3e6;
+  position: absolute;
+  top: 70%;
+  right: 18%;
+  transform: rotate(-12deg);
+}
+
+.water {
+  width: 100%;
+  height: 0%;
+  background-color: #249bd3;
+  position: absolute;
+  bottom: 0;
+  animation: fill 2s ease-in-out;
+}
+
+@keyframes fill {
+  0% {
+    transform: translateY(101%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.water::before {
+  content: "";
+  position: absolute;
+  width: 400%;
+  height: 80px;
+  border: none;
+  left: 0;
+  transform: translateY(-60%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 390'%3E%3Cpath d='M 0,400 L 0,150 C 159.06,185.73 318.13,221.47 491,206 C 663.87,190.53 850.53,123.86 1011,106 C 1171.46,88.13 1305.73,119.06 1440,150 L 1440,400 L 0,400 Z' fill='%23249bd3'/%3E%3C/svg%3E");
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 390'%3E%3Cpath d='M 0,400 L 0,150 C 159.06,185.73 318.13,221.47 491,206 C 663.87,190.53 850.53,123.86 1011,106 C 1171.46,88.13 1305.73,119.06 1440,150 L 1440,400 L 0,400 Z' fill='%23249bd3'/%3E%3C/svg%3E"); */
+  /* background-image: url("../Images/wave.png"); */
+
+  animation: wave 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0;
+  }
+
+  100% {
+    background-position-x: 25%;
+  }
+}
+
+.card {
+  width: 60%;
+  height: 18%;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 3%;
+  position: absolute;
+  bottom: 0%;
+}
+
+.tankTitle {
+  color: #249bd3;
+  font-size: 2vh;
+  font-weight: 600;
+}
+
+.waterLevel {
+  font-size: 2vh;
+}
+
+.waterLevel span {
+  font-weight: 600;
+}
+
+.update {
+  font-size: 2vh;
+  color: gray;
+}
+
+@media (max-width: 425px) {
+  .main-container {
+    width: 40%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main-container {
+    width: 25%;
+    height: 100%;
+   
+  }
+}
+
+

@@ -1,0 +1,29 @@
+.base {
+    background-color: #e3e3e6;
+    width: 12%;
+    height: 1.5%;
+    /* min-height: 12px; */
+    position: absolute;
+    top: 62%;
+    left:10%;
+  }
+  
+  .columnleft {
+    width: 2.5%;
+    height: 28%;
+    background-color: #e3e3e6;
+    position: absolute;
+    top: 63.5%;
+    left: 30%;
+    transform: rotate(12deg);
+  }
+  
+  .columnright {
+    width: 2.5%;
+    height: 28%;
+    background-color: #e3e3e6;
+    position: absolute;
+    top: 63.5%;
+    right: 25%;
+    transform: rotate(-12deg);
+  }

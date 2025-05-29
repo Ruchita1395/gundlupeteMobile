@@ -1,0 +1,16 @@
+.test{
+    width: 100%;
+    height: 100vh; 
+    background-color: rgb(218, 211, 211);  
+}
+
+.test1{
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(218, 211, 211);
+    display: flex; 
+}
+.test2{
+    width: 100%;
+    height: 50%;
+}

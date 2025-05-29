@@ -1,0 +1,98 @@
+.clariflocculator-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+
+.pipe-inlet-container {
+  width: 65%;
+  height: 90%;
+  /* margin-top: 3%; */
+
+}
+.pipe-inlet-adjuestment {
+  width: 100%;
+  height: 50%;
+}
+
+.clariflocculator-main{
+  width: 35%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 4%;
+  
+}
+
+.box-horizontal {
+  /* width: 100%; */
+  width: 100%;
+  height: 15%;
+  border: solid 2px #000;
+  top: 30%;
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(253, 253, 253, 0.949) 2%,
+    #c86a6a 100%
+  );
+}
+.box-black {
+  width: 100%;
+  height: 40%;
+  background: radial-gradient(
+    circle,
+    rgba(113, 111, 111, 0.949) 20%,
+    #040404 120%
+  );
+}
+
+.triangle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 15%;
+}
+
+.triangle {
+  width: 100%;
+  height: 80%;
+  background: radial-gradient(
+    circle,
+    rgba(253, 253, 253, 0.949) 2%,
+    #c86a6a 100%
+  );
+  clip-path: polygon(0 34%, 100% 34%, 75% 100%, 25% 100%);
+  position: relative;
+}
+
+.inner-div {
+  width: 80%;
+  height: 80%;
+  clip-path: polygon(0 34%, 100% 34%, 75% 100%, 25% 100%);
+  background-color: #249bd3;
+  position: absolute;
+  bottom: 5%; /* Position inside */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clariflocculator-Name{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: #000;
+  font-weight: 500;
+  text-align: center;
+  font-size: 2vh;
+  text-transform: uppercase;
+
+}

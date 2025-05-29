@@ -1,0 +1,63 @@
+
+.tank-cap {
+  /* background: #000; */
+  width: 0;
+  border-bottom:11vh solid #e3e3e6;
+  border-left: 9vw solid transparent;
+  border-right: 9vw solid transparent;
+  position: absolute;
+  top: 34%;
+  left: 8%;
+  box-shadow: inset 0px 0px 10px 0px rgba(0.2, 0.2, 0, 1.3);
+
+}
+/* .tank-cap {
+    width: 0;
+    border-bottom:12vh solid #e3e3e6;
+    border-left: 10vw solid transparent;
+    border-right: 10vw solid transparent;
+    position: absolute;
+    top: 29%;
+    left: 5%;
+    box-shadow: inset 0px 0px 10px 0px rgba(0.2, 0.2, 0, 1.3);
+
+  } */
+  /* .tank-cap::before {
+    content: "Level Sensor";
+    color: #000;
+    background-image: url("../Images/levelsensor.png");
+    background-color: rgb(1, 72, 134);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20vw;
+    height: 15vh;
+    position: absolute;
+    top: -15vh;
+    left: -10vw;
+    
+  } */
+
+  .tank-cap-small{
+    width: 0;
+    border-bottom:9vh solid #e3e3e6;
+    border-left: 7.5vw solid transparent;
+    border-right: 7.5vw solid transparent;
+    position: absolute;
+    /* top: 10.5%;
+    left: 36.5%; */
+    box-shadow: inset 0px 0px 10px 0px rgba(0.2, 0.2, 0, 1.3);
+  }
+
+  .extraSmall{
+    width: 0;
+    border-bottom:6vh solid #e3e3e6;
+    border-left: 5vw solid transparent;
+    border-right: 5vw solid transparent;
+    position: absolute;
+    /* top: 20.5%;
+    left: 36.5%; */
+    box-shadow: inset 0px 0px 10px 0px rgba(0.2, 0.2, 0, 1.3);
+
+  }
+
