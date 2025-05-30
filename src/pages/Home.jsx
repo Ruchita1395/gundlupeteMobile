@@ -59,7 +59,7 @@ function Home() {
   } = useData();
 
   const [activeSection, setActiveSection] = useState(1);
-  console.log ("activeSection", activeSection);
+  console.log("activeSection", activeSection);
   const tankstyle = {
     width: "45%",
     height: "100%",
@@ -116,9 +116,8 @@ function Home() {
         case 5:
           return (
             <section
-              className={`section ${
-                activeSection === 4 ? "wtp-inlet" : "hide"
-              } fade-in`}
+              className={`section ${activeSection === 4 ? "wtp-inlet" : "hide"
+                } fade-in`}
             >
               <div className="wtp-inlet-container">
                 <div className="claroflocculator-container">
@@ -157,9 +156,8 @@ function Home() {
         case 1:
           return (
             <section
-              className={`${
-                activeSection === 1 ? "wtp-outlet" : "hide"
-              } fade-in`}
+              className={`${activeSection === 1 ? "wtp-outlet" : "hide"
+                } fade-in`}
             >
               <div className="tank1">
                 <Tank
@@ -170,7 +168,7 @@ function Home() {
               </div>
               <div className="second-tank">
                 <div className="second-tank-component">
-                  <Tank pipeData={wtpOutletJson_tank2}  mqttData={wtpOutlet} />
+                  <Tank pipeData={wtpOutletJson_tank2} mqttData={wtpOutlet} />
                 </div>
               </div>
             </section>
@@ -183,14 +181,56 @@ function Home() {
               <div className="tank-3">
                 <Tank pipeData={ipsJson} mqttData={ips} />
               </div>
+              <div className="card card-1">
+                <p className="tankTitle">
+                  {console.log("ipsJason...", ipsJson)}
+                  {ipsJson?.tankExtraDetails?.tankName}
+                </p>
+                <p className="waterLevel">
+                  water level : {ips?.iotData?.data?.io?.s1 || 0}
+                </p>
+                <div className="outletSection">
+                  {ipsJson?.outlet && (
+                    <p className="outlet"><span>Outlet Attached</span><span className="position">{ipsJson.outlet.attachmentPosition}</span></p>
+                  )}
+                  {ipsJson?.outlet?.pump1 && (
+                    <p>{ipsJson?.outlet?.pump1?.name} attached</p>
+                  )}
+                  {ipsJson?.outlet?.pump2 && (
+                    <p>{ipsJson?.outlet?.pump2?.name} attached</p>
+                  )}
+                  {ipsJson?.outlet?.sensors && (
+                    <>
+                      <p>Sensor's Attached</p>
+                      {ipsJson.outlet.sensors.map((ele, index) => {
+                        const sensorKey = Object.keys(ele)[0];
+                        const sensor = ele[sensorKey];
+                        return (
+                          <div key={index}>
+                            <p>Sensor Name: {sensor.name}</p>
+                          </div>
+                        );
+                      })}
+                    </>
+                  )}
+
+                </div>
+                <div className="inletSection">
+                  {ipsJson?.inlet && (
+                    <p className="inlet"><span>Inlet Attached</span><span className="position">{ipsJson.outlet.attachmentPosition}</span></p>
+                  )}
+                </div>
+                {lastUpdatedTime && (
+                  <p className="update">Last update: {lastUpdatedTime}</p>
+                )}
+              </div>
             </section>
           );
         case 3:
           return (
             <section
-              className={`section ${
-                activeSection === 3 ? "distribution" : "hide"
-              } fade-in`}
+              className={`section ${activeSection === 3 ? "distribution" : "hide"
+                } fade-in`}
             >
               <div className="tank-containar">
                 <div className="mbr-containar">

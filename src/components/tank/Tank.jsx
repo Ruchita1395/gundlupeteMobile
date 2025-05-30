@@ -96,20 +96,6 @@ const Tank = memo(
 
     return (
       <div className={styles["tank-containar"]} style={tankContainar || {}}>
-        {/* Inlet Pipe */}
-        {pipeData?.inlet && (
-          <div
-            className={styles["pipe-inlet-container"]}
-            style={{ width: pipeInletWidth }}
-          >
-            <div
-              className={`${styles["pipe-inlet-adjuestment"]} ${inletPositionClass}`}
-            >
-              <PipeInlet inletData={inletData} inletmqttData={mqttData} waterOn={waterflow} />
-            </div>
-          </div>
-        )}
-
         {/* Main Tank */}
         <div className={styles["main-container"]} style={tankstyle || {}}>
           <div className={styles["tank-cap"]}></div>
@@ -143,26 +129,6 @@ const Tank = memo(
           <div className={styles.columnleft}></div>
           <div className={styles.columnright}></div>
         </div>
-
-        {/* Outlet Pipe */}
-        {pipeData?.outlet && (
-          <div
-            className={styles["pipe-outlet-container"]}
-            style={{ width: pipeOutletWidth }}
-          >
-            <div
-              className={`${styles["pipe-outlet-adjuestment"]} ${outletPositionClass}`}
-            >
-              <PipeOutlet
-                waterOn={waterflow}
-                sensorData={pipeData.outlet}
-                pipeOutletWidth={pipeOutletWidth}
-                outletmqttData={mqttData}
-                seperateMqttData={seperateMqttData}
-              />
-            </div>
-          </div>
-        )}
       </div>
     );
   }
