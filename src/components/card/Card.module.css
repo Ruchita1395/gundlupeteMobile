@@ -55,6 +55,48 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.sectionTitle {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  color: #249bd3;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.expandButton:active {
+  transform: scale(0.95);
+}
+
+.sectionContent {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.sectionContent.collapsed {
+  max-height: 0;
+}
+
 .outlet, .inlet {
   display: flex;
   justify-content: space-between;
@@ -128,6 +170,18 @@
 
   .outletSection, .inletSection {
     padding: 0.8rem;
+  }
+
+  .sectionHeader {
+    padding: 0.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3vh;
+  }
+
+  .expandButton {
+    font-size: 1.4vh;
   }
 
   .outlet, .inlet {
