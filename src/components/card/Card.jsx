@@ -2,15 +2,15 @@ import React from "react";
 import styles from "./Card.module.css";
 
 function Card({ pipeData, mqttData, lastUpdatedTime }) {
-  const [showDetails, setShowDetails] = React.useState(false);
+  const [showDetails, setShowDetails] = React.useState(true);
   const [expandedSections, setExpandedSections] = React.useState({
     outlet: true,
     inlet: true
   });
 
-  function toggleDetails() {
-    setShowDetails(!showDetails);
-  }
+  // function toggleDetails() {
+  //   setShowDetails(!showDetails);
+  // }
 
   function toggleSection(section) {
     setExpandedSections(prev => ({
@@ -106,9 +106,9 @@ function Card({ pipeData, mqttData, lastUpdatedTime }) {
         <p className={styles.update}>Last update: {lastUpdatedTime}</p>
       )}
 
-      <button className={styles.btnDetails} type="button" onClick={toggleDetails}>
+      {/* <button className={styles.btnDetails} type="button" onClick={toggleDetails}>
         {showDetails ? "Hide Details" : "Show Details"}
-      </button>
+      </button> */}
     </div>
   );
 }
