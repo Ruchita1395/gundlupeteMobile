@@ -17,6 +17,7 @@
   display: none;
   transition: all 1s ease-in-out;
 }
+
 .card-1 {
   width: 100%;
   height: 15%;
@@ -35,6 +36,60 @@
 .update {
   font-size: 1vh;
   color: gray;
+}
+
+.cardDetails {
+  width: 100%;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.outletSection, .inletSection {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.outlet, .inlet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.position {
+  background: #e9ecef;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.btnDetails {
+  background: #249bd3;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btnDetails:active {
+  background: #1a7aa3;
+  transform: scale(0.98);
 }
 
 @media screen and (max-width: 725px) {
@@ -63,34 +118,29 @@
   .update {
     font-size: 1.2vh;
   }
+
   .cardDetails {
-    width: 60%;
-    height: 50%;
+    width: 100%;
+    padding: 0.8rem;
     font-size: 1.5vh;
     font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .outletSection, .inletSection {
+    padding: 0.8rem;
+  }
+
+  .outlet, .inlet {
+    font-size: 1.3vh;
+  }
+
+  .position {
+    font-size: 1.2vh;
   }
 
   .btnDetails {
-    width: fit-content;
-    height: 2vh;
-    background: none;
-    padding: 0% 5%;
+    padding: 0.8rem;
     font-size: 1.3vh;
-    font-weight: 100;
-    border-radius: 10px;
-    opacity: 1;
-  }
-  .btnDetails:hover {
-    background-color: rgba(36, 155, 211, 0.1);
-  }
-
-  .btnDetails:active {
-    background-color: #249bd3;
-    color: white;
-    transform: scale(0.97);
+    font-weight: 500;
   }
 }

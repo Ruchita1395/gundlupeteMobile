@@ -16,46 +16,52 @@ function Card({ pipeData, mqttData, lastUpdatedTime }) {
       </p>
 
       {(pipeData?.outlet || pipeData?.inlet) && (
-        <div className={ showDetails ? styles.cardDetails : styles.hide }>
+        <div className={showDetails ? styles.cardDetails : styles.hide}>
           {pipeData?.outlet && (
             <div className={styles.outletSection}>
-              <p className={styles.outlet}>
-                <span>Outlet Attached</span>
+              <div className={styles.outlet}>
+                <span>Outlet</span>
                 <span className={styles.position}>
                   {pipeData.outlet.attachmentPosition}
                 </span>
-              </p>
-              {pipeData?.outlet?.pump1 && (
-                <p>{pipeData?.outlet?.pump1?.name} attached</p>
+              </div>
+              
+              {(pipeData?.outlet?.pump1 || pipeData?.outlet?.pump2) && (
+                <div>
+                  {pipeData?.outlet?.pump1 && (
+                    <p>{pipeData.outlet.pump1.name}</p>
+                  )}
+                  {pipeData?.outlet?.pump2 && (
+                    <p>{pipeData.outlet.pump2.name}</p>
+                  )}
+                </div>
               )}
-              {pipeData?.outlet?.pump2 && (
-                <p>{pipeData?.outlet?.pump2?.name} attached</p>
-              )}
-              {pipeData?.outlet?.sensors && (
-                <>
-                  <p>Sensor's Attached</p>
+
+              {pipeData?.outlet?.sensors && pipeData.outlet.sensors.length > 0 && (
+                <div>
+                  <p style={{ marginBottom: '0.5rem' }}>Sensors Attachment:</p>
                   {pipeData.outlet.sensors.map((ele, index) => {
                     const sensorKey = Object.keys(ele)[0];
                     const sensor = ele[sensorKey];
                     return (
-                      <div key={index}>
-                        <p>Sensor Name: {sensor.name}</p>
+                      <div key={index} style={{ marginLeft: '0.5rem' }}>
+                        <p>{sensor.name}</p>
                       </div>
                     );
                   })}
-                </>
+                </div>
               )}
             </div>
           )}
 
           {pipeData?.inlet && (
             <div className={styles.inletSection}>
-              <p className={styles.inlet}>
-                <span>Inlet Attached</span>
+              <div className={styles.inlet}>
+                <span>Inlet</span>
                 <span className={styles.position}>
-                  {pipeData.outlet.attachmentPosition}
+                  {pipeData.inlet.attachmentPosition}
                 </span>
-              </p>
+              </div>
             </div>
           )}
         </div>
