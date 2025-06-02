@@ -207,27 +207,47 @@ body {
   left: 24.4%;
   top: 39.5%;
 }
+.wtpCard {
+  width: 60%;
+  height: fit-content;
+  /* background-color: aliceblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (max-width: 725px) {
   .wtp-outlet {
     width: 100%;
     height: 130vh;
+    overflow-y: auto;
     position: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .wtpCard {
+    width: 60%;
+    height: fit-content;
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tank1 {
     width: 100%;
     height: 50%;
     transform: translate(0%, 0%);
-  
   }
 
   .second-tank {
     width: 100%;
     height: 50%;
-  
     position: static;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -300,7 +320,7 @@ body {
 
   .tank-3 {
     width: 100%;
-    height: 70%;
+    height: 60%;
   }
 
   .pipe-outlet-1-to-2 {
@@ -335,6 +355,14 @@ body {
     position: absolute;
     top: 10%;
     left: 0%;
+  }
+  .ipsCard {
+    width: 60%;
+    height: fit-content;
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -483,25 +511,27 @@ body {
 
   .tank-containar {
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding-top: 5%;
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    
-    box-shadow: rgb(38, 57, 77) 0px 0px 30px -10px;
 
+    box-shadow: rgb(38, 57, 77) 0px 0px 30px -10px;
   }
   .mbr-containar {
     width: 90%;
-    height: 80%;
-    padding: 1%;
-    margin: 5%;
+    padding: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .mbr-tank {
-    width: 100%;
-    height: 80%;
+    width: 85%;
+    height: 75%;
   }
   .other-tank-containar {
     width: 100%;
@@ -511,66 +541,28 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    
   }
 
   .all-tank {
     width: 90%;
-    height: 100%;
-    padding: 1%;
-      /* display: flex;
-      align-items: center;
-      justify-content: center; */
+    /* height: 100%; */
+    height: 35vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .tank-adjiustment-distribution {
     width: 100%;
-    height: 80%;
-  }
-  .other-tank-containar-2 {
-    width: 100%;
-    height: 100%;
-    border: saddlebrown solid 1px;
+    height: 90%;
   }
 
-  .card {
-    width: 90%;
-    height: 20%;
-    text-align: center;
- 
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
-    border-radius: 2px;
+  .distributions-card {
+    width: 60%;
+    height: fit-content;
+    /* background-color: aliceblue; */
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 5%;
-    margin-bottom: 2%;
-    /* position: absolute; */
-    /* bottom: 0%; */
-    padding: 0% 2%;
-    color: #000;
-  }
-  .card-1 {
-    width: 100%;
-    height: 15%;
-  }
-
-  .tankTitle {
-    color: #249bd3;
-    font-size: 1.5vh;
-    font-weight: 500;
-  }
-
-  .waterLevel {
-    font-size: 1.5vh;
-  }
-
-  .waterLevel span {
-    font-weight: 600;
-  }
-
-  .update {
-    font-size: 1vh;
-    color: gray;
   }
 }

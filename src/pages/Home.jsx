@@ -17,6 +17,7 @@ import { getUserPoolObj, getAWSCredentials } from "../utils/awsConfig.js";
 import AWS from "aws-sdk";
 
 import useIoTConnection from "../hooks/useIoTConnection.js";
+import Card from "../components/card/Card.jsx";
 
 function Home() {
   const {
@@ -116,8 +117,9 @@ function Home() {
         case 5:
           return (
             <section
-              className={`section ${activeSection === 4 ? "wtp-inlet" : "hide"
-                } fade-in`}
+              className={`section ${
+                activeSection === 4 ? "wtp-inlet" : "hide"
+              } fade-in`}
             >
               <div className="wtp-inlet-container">
                 <div className="claroflocculator-container">
@@ -156,8 +158,9 @@ function Home() {
         case 1:
           return (
             <section
-              className={`${activeSection === 1 ? "wtp-outlet" : "hide"
-                } fade-in`}
+              className={`${
+                activeSection === 1 ? "wtp-outlet" : "hide"
+              } fade-in`}
             >
               <div className="tank1">
                 <Tank
@@ -166,9 +169,23 @@ function Home() {
                   seperateMqttData={wtpInlet}
                 />
               </div>
+              <div className="wtpCard">
+                <Card
+                  pipeData={wtpOutletJson_tank1}
+                  mqttData={wtpOutlet}
+                  lastUpdatedTime={lastUpdatedTime}
+                />
+              </div>
               <div className="second-tank">
                 <div className="second-tank-component">
                   <Tank pipeData={wtpOutletJson_tank2} mqttData={wtpOutlet} />
+                </div>
+                <div className="wtpCard">
+                  <Card
+                    pipeData={wtpOutletJson_tank2}
+                    mqttData={wtpOutlet}
+                    lastUpdatedTime={lastUpdatedTime}
+                  />
                 </div>
               </div>
             </section>
@@ -181,7 +198,7 @@ function Home() {
               <div className="tank-3">
                 <Tank pipeData={ipsJson} mqttData={ips} />
               </div>
-              <div className="card card-1">
+              {/* <div className="card card-1">
                 <p className="tankTitle">
                   {console.log("ipsJason...", ipsJson)}
                   {ipsJson?.tankExtraDetails?.tankName}
@@ -223,14 +240,22 @@ function Home() {
                 {lastUpdatedTime && (
                   <p className="update">Last update: {lastUpdatedTime}</p>
                 )}
+              </div> */}
+              <div className="ipsCard">
+                <Card
+                  pipeData={ipsJson}
+                  mqttData={ips}
+                  lastUpdatedTime={lastUpdatedTime}
+                />
               </div>
             </section>
           );
         case 3:
           return (
             <section
-              className={`section ${activeSection === 3 ? "distribution" : "hide"
-                } fade-in`}
+              className={`section ${
+                activeSection === 3 ? "distribution" : "hide"
+              } fade-in`}
             >
               <div className="tank-containar">
                 <div className="mbr-containar">
@@ -241,16 +266,12 @@ function Home() {
                       mqttData={mbrTank}
                     />
                   </div>
-                  <div className="card card-1">
-                    <p className="tankTitle">
-                      {distributionJson?.tank6?.tankExtraDetails?.tankName}
-                    </p>
-                    <p className="waterLevel">
-                      water level : {mbrTank?.iotData?.data?.io?.s1 || 0}
-                    </p>
-                    {lastUpdatedTime && (
-                      <p className="update">Last update: {lastUpdatedTime}</p>
-                    )}
+                  <div className="distributions-card">
+                    <Card
+                      pipeData={distributionJson.tank6}
+                      mqttData={mbrTank}
+                      lastUpdatedTime={lastUpdatedTime}
+                    />
                   </div>
                 </div>
                 <div className="other-tank-containar">
@@ -262,17 +283,12 @@ function Home() {
                         mqttData={distrbutiontank1}
                       />
                     </div>
-                    <div className="card card-1">
-                      <p className="tankTitle">
-                        {distributionJson?.tank1?.tankExtraDetails?.tankName}
-                      </p>
-                      <p className="waterLevel">
-                        water level :{" "}
-                        {distrbutiontank1?.iotData?.data?.io?.s1 || 0}
-                      </p>
-                      {lastUpdatedTime && (
-                        <p className="update">Last update: {lastUpdatedTime}</p>
-                      )}
+                    <div className="distributions-card">
+                      <Card
+                        pipeData={distributionJson.tank1}
+                        mqttData={distrbutiontank1}
+                        lastUpdatedTime={lastUpdatedTime}
+                      />
                     </div>
                   </div>
                   <div className="all-tank">
@@ -283,17 +299,12 @@ function Home() {
                         mqttData={distrbutionTank2}
                       />
                     </div>
-                    <div className="card card-1">
-                      <p className="tankTitle">
-                        {distributionJson?.tank2?.tankExtraDetails?.tankName}
-                      </p>
-                      <p className="waterLevel">
-                        water level :{" "}
-                        {distrbutionTank2?.iotData?.data?.io?.s1 || 0}
-                      </p>
-                      {lastUpdatedTime && (
-                        <p className="update">Last update: {lastUpdatedTime}</p>
-                      )}
+                    <div className="distributions-card">
+                      <Card
+                        pipeData={distributionJson.tank2}
+                        mqttData={distrbutionTank2}
+                        lastUpdatedTime={lastUpdatedTime}
+                      />
                     </div>
                   </div>
                   <div className="all-tank">
@@ -304,17 +315,12 @@ function Home() {
                         mqttData={distrbutionTank3}
                       />
                     </div>
-                    <div className="card card-1">
-                      <p className="tankTitle">
-                        {distributionJson?.tank3?.tankExtraDetails?.tankName}
-                      </p>
-                      <p className="waterLevel">
-                        water level :{" "}
-                        {distrbutionTank3?.iotData?.data?.io?.s1 || 0}
-                      </p>
-                      {lastUpdatedTime && (
-                        <p className="update">Last update: {lastUpdatedTime}</p>
-                      )}
+                   <div className="distributions-card">
+                      <Card
+                        pipeData={distributionJson.tank3}
+                        mqttData={distrbutionTank3}
+                        lastUpdatedTime={lastUpdatedTime}
+                      />
                     </div>
                   </div>
                   <div className="all-tank">
@@ -325,17 +331,12 @@ function Home() {
                         mqttData={distrbutionTank4}
                       />
                     </div>
-                    <div className="card card-1">
-                      <p className="tankTitle">
-                        {distributionJson?.tank4?.tankExtraDetails?.tankName}
-                      </p>
-                      <p className="waterLevel">
-                        water level :{" "}
-                        {distrbutionTank4?.iotData?.data?.io?.s1 || 0}
-                      </p>
-                      {lastUpdatedTime && (
-                        <p className="update">Last update: {lastUpdatedTime}</p>
-                      )}
+                     <div className="distributions-card">
+                      <Card
+                        pipeData={distributionJson.tank4}
+                        mqttData={distrbutionTank4}
+                        lastUpdatedTime={lastUpdatedTime}
+                      />
                     </div>
                   </div>
                   <div className="all-tank ">
@@ -346,17 +347,12 @@ function Home() {
                         mqttData={distrbutionTank5}
                       />
                     </div>
-                    <div className="card card-1">
-                      <p className="tankTitle">
-                        {distributionJson?.tank5?.tankExtraDetails?.tankName}
-                      </p>
-                      <p className="waterLevel">
-                        water level :{" "}
-                        {distrbutionTank5?.iotData?.data?.io?.s1 || 0}
-                      </p>
-                      {lastUpdatedTime && (
-                        <p className="update">Last update: {lastUpdatedTime}</p>
-                      )}
+                    <div className="distributions-card">
+                      <Card
+                        pipeData={distributionJson.tank5}
+                        mqttData={distrbutionTank5}
+                        lastUpdatedTime={lastUpdatedTime}
+                      />
                     </div>
                   </div>
                 </div>

@@ -226,7 +226,7 @@
 
 @media (max-width: 800px){
   .main-container {
-    width: 35%;
+    width: 35%; 
     height: 100%;
   }
   .level-sensor-container {
