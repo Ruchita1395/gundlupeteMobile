@@ -83,10 +83,10 @@
           "mqtt": {
            "dataSource": "modbus",
            "level": [
-            "1"
+            "4"
            ],
            "variableName": [
-            "pH1"
+            "ph1"
            ]
           },
           "name": "pH",
@@ -106,7 +106,7 @@
             "1"
            ],
            "variableName": [
-            "s1"
+            "trubidity1"
            ]
           },
           "name": "turbidity",

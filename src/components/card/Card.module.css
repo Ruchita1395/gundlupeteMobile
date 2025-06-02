@@ -1,16 +1,19 @@
 .card {
   width: 90%;
-  height: 20%;
+  min-height: 20%;
   text-align: center;
   border-radius: 2px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 5%;
+  justify-content: flex-start;
+  gap: 2%;
   margin-bottom: 2%;
-  padding: 0% 2%;
+  padding: 2%;
   color: #000;
+  position: relative;
+  z-index: 10;
+  background: white;
 }
 
 .hide {
@@ -20,22 +23,33 @@
 
 .card-1 {
   width: 100%;
-  height: 15%;
+  min-height: 15%;
+  position: relative;
+  z-index: 10;
 }
 
 .tankTitle {
   color: #249bd3;
   font-size: 1.5vh;
   font-weight: 500;
+  margin-bottom: 1vh;
+  position: relative;
+  z-index: 10;
 }
 
 .waterLevel {
   font-size: 1.5vh;
+  margin-bottom: 1vh;
+  position: relative;
+  z-index: 10;
 }
 
 .update {
   font-size: 1vh;
   color: gray;
+  margin-bottom: 1vh;
+  position: relative;
+  z-index: 10;
 }
 
 .cardDetails {
@@ -45,6 +59,8 @@
   padding: 1rem;
   margin: 0.5rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
 }
 
 .outletSection, .inletSection {
@@ -53,6 +69,8 @@
   padding: 1rem;
   margin: 0.5rem 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
 }
 
 .sectionHeader {
@@ -64,11 +82,15 @@
   border-radius: 6px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .sectionTitle {
   font-weight: 500;
   color: #2c3e50;
+  position: relative;
+  z-index: 10;
 }
 
 .expandButton {
@@ -82,6 +104,8 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .expandButton:active {
@@ -91,6 +115,8 @@
 .sectionContent {
   overflow: hidden;
   transition: max-height 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .sectionContent.collapsed {
@@ -105,6 +131,8 @@
   background: #f8f9fa;
   border-radius: 6px;
   margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 .position {
@@ -113,6 +141,8 @@
   border-radius: 4px;
   font-size: 0.9rem;
   color: #495057;
+  position: relative;
+  z-index: 10;
 }
 
 .btnDetails {
@@ -127,6 +157,8 @@
   transition: all 0.2s ease;
   width: 100%;
   margin-top: 0.5rem;
+  position: relative;
+  z-index: 10;
 }
 
 .btnDetails:active {
@@ -137,28 +169,40 @@
 @media screen and (max-width: 725px) {
   .card {
     width: 100%;
-    height: fit-content;
+    min-height: fit-content;
     border-radius: 2px;
     display: flex;
     gap: 1vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 2%;
+    padding: 2%;
+    position: relative;
+    z-index: 10;
   }
 
   .tankTitle {
     font-size: 2vh;
     font-weight: 500;
+    margin-bottom: 1vh;
+    position: relative;
+    z-index: 10;
   }
 
   .waterLevel {
     text-transform: uppercase;
     font-size: 1.5vh;
+    margin-bottom: 1vh;
+    position: relative;
+    z-index: 10;
   }
 
   .update {
     font-size: 1.2vh;
+    margin-bottom: 1vh;
+    position: relative;
+    z-index: 10;
   }
 
   .cardDetails {
@@ -166,35 +210,80 @@
     padding: 0.8rem;
     font-size: 1.5vh;
     font-weight: 400;
+    position: relative;
+    z-index: 10;
   }
 
   .outletSection, .inletSection {
     padding: 0.8rem;
+    position: relative;
+    z-index: 10;
   }
 
   .sectionHeader {
     padding: 0.4rem;
+    position: relative;
+    z-index: 10;
   }
 
   .sectionTitle {
     font-size: 1.3vh;
+    position: relative;
+    z-index: 10;
   }
 
   .expandButton {
     font-size: 1.4vh;
+    position: relative;
+    z-index: 10;
   }
 
   .outlet, .inlet {
     font-size: 1.3vh;
+    position: relative;
+    z-index: 10;
   }
 
   .position {
     font-size: 1.2vh;
+    position: relative;
+    z-index: 10;
   }
 
   .btnDetails {
     padding: 0.8rem;
     font-size: 1.3vh;
     font-weight: 500;
+    position: relative;
+    z-index: 10;
+  }
+  .cardInfo, .sensorInfo {
+    text-align: left;
+  }
+  .cardInfo p {
+    padding: 10px;
+  }
+  .sensorInfo div {
+    padding: 10px;
+  }
+  .sensorInfo p.sensorHead {
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  .sensorMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .magneticFlowmeterSensor {
+    display: flex;
+    flex-direction: column;
+  }
+  .otherSensor {
+
   }
 }

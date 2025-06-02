@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Card.module.css";
 
-function Card({ pipeData, mqttData, lastUpdatedTime }) {
+function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdata }) {
   const [showDetails, setShowDetails] = React.useState(true);
   const [expandedSections, setExpandedSections] = React.useState({
     outlet: true,
     inlet: true
   });
-
+  console.log("sensorMbrdata data........", sensorMbrdata);
   // function toggleDetails() {
   //   setShowDetails(!showDetails);
   // }
@@ -23,7 +23,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime }) {
     <div className={`${styles.card} ${styles["card-1"]}`}>
       <p className={styles.tankTitle}>{pipeData?.tankExtraDetails?.tankName}</p>
       <p className={styles.waterLevel}>
-        water level : {mqttData?.iotData?.data?.io?.s1 || 0}
+        water level : {mqttInletData?.iotData?.data?.io?.s1 ? mqttInletData?.iotData?.data?.io?.s1: mqttData?.iotData?.data?.io?.s1}
       </p>
 
       {(pipeData?.outlet || pipeData?.inlet) && (
@@ -49,7 +49,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime }) {
                 </div>
                 
                 {(pipeData?.outlet?.pump1 || pipeData?.outlet?.pump2) && (
-                  <div>
+                  <div className={styles.cardInfo}>
                     {pipeData?.outlet?.pump1 && (
                       <p>{pipeData.outlet.pump1.name}</p>
                     )}
@@ -60,14 +60,37 @@ function Card({ pipeData, mqttData, lastUpdatedTime }) {
                 )}
 
                 {pipeData?.outlet?.sensors && pipeData.outlet.sensors.length > 0 && (
-                  <div>
-                    <p style={{ marginBottom: '0.5rem' }}>Sensors Attachment:</p>
+                  <div className={styles.sensorInfo}>
+                    <p className={styles.sensorHead}>Sensors Attachment:</p>
                     {pipeData.outlet.sensors.map((ele, index) => {
                       const sensorKey = Object.keys(ele)[0];
                       const sensor = ele[sensorKey];
+                      const mqttInfo = sensor?.mqtt || {};
+                      const variableNames = mqttInfo?.variableName || [];
+                      const units = sensor?.unit || [];
+                      const dataSource = mqttInfo?.dataSource;
+                      const level = mqttInfo?.level || "0";
+                      const modbusData = sensorMbrdata?.iotData?.data?.[dataSource]?.[level];
+                      console.log("modbus Data...", modbusData);
+                      // const modbusData = mqttData?.iotData?.data?.[dataSource]?.[level];
+                      const values = variableNames.map(
+                        (varName) => modbusData?.[varName] ?? 0.0
+                      );
+                      // console.log("modbus data....", modbusData);
+                      // const values = variableNames.map(
+                      //   (varName) => modbusData?.[varName] ?? 0.0
+                      // );
+                      // const currentFlow=values[0] ?? 0.0
+                      // const totalFlow=values[1] ?? 0.0
+                      // const value=values[0] ?? 0.0
+                      // const unit=units
                       return (
-                        <div key={index} style={{ marginLeft: '0.5rem' }}>
+                        <div key={index} style={{ marginLeft: '0.5rem' }} className={styles.sensorMain}>
                           <p>{sensor.name}</p>
+                           {(() => {
+                            if (sensorKey === 'magneticFlowMeter') return <div className={styles.magneticFlowmeterSensor}><div><span>CF:</span> <span>{values[0]} {units}</span></div><div><span>TF:</span> <span>{values[1]} {units}</span></div></div>;
+                            if (sensorKey !== 'magneticFlowMeter') return <div className={styles.otherSensor}><span>{values[0]} {units}</span></div>;
+                          })()}
                         </div>
                       );
                     })}

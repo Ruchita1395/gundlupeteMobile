@@ -173,7 +173,9 @@ function Home() {
                 <Card
                   pipeData={wtpOutletJson_tank1}
                   mqttData={wtpOutlet}
+                  mqttInletData={wtpInlet}
                   lastUpdatedTime={lastUpdatedTime}
+                  sensorMbrdata={mbrTank}
                 />
               </div>
               <div className="second-tank">
@@ -198,49 +200,6 @@ function Home() {
               <div className="tank-3">
                 <Tank pipeData={ipsJson} mqttData={ips} />
               </div>
-              {/* <div className="card card-1">
-                <p className="tankTitle">
-                  {console.log("ipsJason...", ipsJson)}
-                  {ipsJson?.tankExtraDetails?.tankName}
-                </p>
-                <p className="waterLevel">
-                  water level : {ips?.iotData?.data?.io?.s1 || 0}
-                </p>
-                <div className="outletSection">
-                  {ipsJson?.outlet && (
-                    <p className="outlet"><span>Outlet Attached</span><span className="position">{ipsJson.outlet.attachmentPosition}</span></p>
-                  )}
-                  {ipsJson?.outlet?.pump1 && (
-                    <p>{ipsJson?.outlet?.pump1?.name} attached</p>
-                  )}
-                  {ipsJson?.outlet?.pump2 && (
-                    <p>{ipsJson?.outlet?.pump2?.name} attached</p>
-                  )}
-                  {ipsJson?.outlet?.sensors && (
-                    <>
-                      <p>Sensor's Attached</p>
-                      {ipsJson.outlet.sensors.map((ele, index) => {
-                        const sensorKey = Object.keys(ele)[0];
-                        const sensor = ele[sensorKey];
-                        return (
-                          <div key={index}>
-                            <p>Sensor Name: {sensor.name}</p>
-                          </div>
-                        );
-                      })}
-                    </>
-                  )}
-
-                </div>
-                <div className="inletSection">
-                  {ipsJson?.inlet && (
-                    <p className="inlet"><span>Inlet Attached</span><span className="position">{ipsJson.outlet.attachmentPosition}</span></p>
-                  )}
-                </div>
-                {lastUpdatedTime && (
-                  <p className="update">Last update: {lastUpdatedTime}</p>
-                )}
-              </div> */}
               <div className="ipsCard">
                 <Card
                   pipeData={ipsJson}
@@ -257,104 +216,43 @@ function Home() {
                 activeSection === 3 ? "distribution" : "hide"
               } fade-in`}
             >
-              <div className="tank-containar">
-                <div className="mbr-containar">
-                  <div className="mbr-tank">
-                    <Tank
-                      tankstyle={tankstyle}
-                      pipeData={distributionJson?.tank6}
-                      mqttData={mbrTank}
-                    />
-                  </div>
-                  <div className="distributions-card">
-                    <Card
-                      pipeData={distributionJson.tank6}
-                      mqttData={mbrTank}
-                      lastUpdatedTime={lastUpdatedTime}
-                    />
-                  </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '20px' }}>
+                {/* MBR Tank */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                  <Tank
+                    tankstyle={tankstyle}
+                    pipeData={distributionJson?.tank6}
+                    mqttData={mbrTank}
+                  />
+                  <Card
+                    pipeData={distributionJson.tank6}
+                    mqttData={mbrTank}
+                    lastUpdatedTime={lastUpdatedTime}
+                  />
                 </div>
-                <div className="other-tank-containar">
-                  <div className="all-tank">
-                    <div className="tank-adjiustment-distribution">
+
+                {/* Distribution Tanks */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                  {[
+                    { data: distributionJson.tank1, mqtt: distrbutiontank1 },
+                    { data: distributionJson.tank2, mqtt: distrbutionTank2 },
+                    { data: distributionJson.tank3, mqtt: distrbutionTank3 },
+                    { data: distributionJson.tank4, mqtt: distrbutionTank4 },
+                    { data: distributionJson.tank5, mqtt: distrbutionTank5 }
+                  ].map((tank, index) => (
+                    <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                       <Tank
                         tankstyle={smalltankstyle}
-                        pipeData={distributionJson.tank1}
-                        mqttData={distrbutiontank1}
+                        pipeData={tank.data}
+                        mqttData={tank.mqtt}
                       />
-                    </div>
-                    <div className="distributions-card">
                       <Card
-                        pipeData={distributionJson.tank1}
-                        mqttData={distrbutiontank1}
+                        pipeData={tank.data}
+                        mqttData={tank.mqtt}
                         lastUpdatedTime={lastUpdatedTime}
                       />
                     </div>
-                  </div>
-                  <div className="all-tank">
-                    <div className="tank-adjiustment-distribution">
-                      <Tank
-                        tankstyle={smalltankstyle}
-                        pipeData={distributionJson.tank2}
-                        mqttData={distrbutionTank2}
-                      />
-                    </div>
-                    <div className="distributions-card">
-                      <Card
-                        pipeData={distributionJson.tank2}
-                        mqttData={distrbutionTank2}
-                        lastUpdatedTime={lastUpdatedTime}
-                      />
-                    </div>
-                  </div>
-                  <div className="all-tank">
-                    <div className="tank-adjiustment-distribution">
-                      <Tank
-                        tankstyle={smalltankstyle}
-                        pipeData={distributionJson.tank3}
-                        mqttData={distrbutionTank3}
-                      />
-                    </div>
-                   <div className="distributions-card">
-                      <Card
-                        pipeData={distributionJson.tank3}
-                        mqttData={distrbutionTank3}
-                        lastUpdatedTime={lastUpdatedTime}
-                      />
-                    </div>
-                  </div>
-                  <div className="all-tank">
-                    <div className="tank-adjiustment-distribution">
-                      <Tank
-                        tankstyle={smalltankstyle}
-                        pipeData={distributionJson.tank4}
-                        mqttData={distrbutionTank4}
-                      />
-                    </div>
-                     <div className="distributions-card">
-                      <Card
-                        pipeData={distributionJson.tank4}
-                        mqttData={distrbutionTank4}
-                        lastUpdatedTime={lastUpdatedTime}
-                      />
-                    </div>
-                  </div>
-                  <div className="all-tank ">
-                    <div className="tank-adjiustment-distribution">
-                      <Tank
-                        tankstyle={smalltankstyle}
-                        pipeData={distributionJson.tank5}
-                        mqttData={distrbutionTank5}
-                      />
-                    </div>
-                    <div className="distributions-card">
-                      <Card
-                        pipeData={distributionJson.tank5}
-                        mqttData={distrbutionTank5}
-                        lastUpdatedTime={lastUpdatedTime}
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </section>
