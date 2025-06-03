@@ -32,8 +32,12 @@
               "mqtt": {
                 "dataSource": "modbus",
                 "variableName": [
-                  "s1"
-                ]
+                  "flowrate1"
+                ],
+                "level": [
+                  0
+                ],
+                "source": "wtpInletMqtt"
               },
               "name": "Pump1",
               "pumpAttachment": "left",
@@ -45,8 +49,12 @@
               "mqtt": {
                 "dataSource": "modbus",
                 "variableName": [
-                  "s1"
-                ]
+                  "flowrate1"
+                ],
+                "level": [
+                  0
+                ],
+                "source": "wtpInletMqtt"
               },
               "name": "Pump2",
               "pumpAttachment": "left",
@@ -207,7 +215,10 @@
               "mqtt": {
                 "dataSource": "modbus",
                 "variableName": [
-                  "s1"
+                  "flowrate1"
+                ],
+                "level": [
+                  0
                 ]
               },
               "name": "Pump1",
@@ -221,8 +232,9 @@
               "mqtt": {
                 "dataSource": "modbus",
                 "variableName": [
-                  "s1"
-                ]
+                  "flowrate1"
+                ],
+                "level": [0]
               },
               "name": "Pump2",
               "pumpAttachment": "left",
@@ -242,7 +254,8 @@
                     "variableName": [
                       "flowrate1",
                       "totaliser1"
-                    ]
+                    ],
+                    "level": [0]
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
@@ -329,7 +342,7 @@
                   "mqtt": {
                     "dataSource": "modbus",
                     "level": [
-                      "1"
+                      0
                     ],
                     "variableName": [
                       "s1"

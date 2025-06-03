@@ -135,7 +135,6 @@ useEffect(() => {
           ...prev,
           [topic]: data || prev[topic], // Preserve previous data if new data is missing
         }));
-        console.log("pageOneIotData", pageOneIotData);
       } else if (topics.includes("ips")) {
         setPageTwoIotData((prev) => ({
           ...prev,

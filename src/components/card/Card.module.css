@@ -246,7 +246,7 @@
 
   .outlet,
   .inlet {
-    font-size: 1.3vh;
+    font-size: 1.5vh;
     position: relative;
     z-index: 10;
   }
@@ -299,4 +299,38 @@
   }
 
   .otherSensor {}
+}
+
+.pumpStatus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 1.5vh;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  /* background: #f8f9fa; */
+  border-radius: 6px;
+}
+
+.statusIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  order: 2;
+}
+
+.pumpStatus span:last-child {
+  order: 1;
+}
+
+.statusOn {
+  background-color: #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+}
+
+.statusOff {
+  background-color: #f44336;
+  box-shadow: 0 0 8px #f44336;
 }

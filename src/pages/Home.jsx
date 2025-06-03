@@ -26,7 +26,7 @@ function Home() {
     wtpInlet,
     ips,
     mbrTank,
-    distrbutiontank1,
+    distrbutionTank1,
     distrbutionTank2,
     distrbutionTank3,
     distrbutionTank4,
@@ -42,7 +42,7 @@ function Home() {
     setLastUpdatedTime(formattedTime);
   }, [
     mbrTank?.iotData?.data?.io?.s1,
-    distrbutiontank1?.iotData?.data?.io?.s1,
+    distrbutionTank1?.iotData?.data?.io?.s1,
     distrbutionTank2?.iotData?.data?.io?.s1,
     distrbutionTank3?.iotData?.data?.io?.s1,
     distrbutionTank4?.iotData?.data?.io?.s1,
@@ -60,7 +60,6 @@ function Home() {
   } = useData();
 
   const [activeSection, setActiveSection] = useState(1);
-  console.log("activeSection", activeSection);
   const tankstyle = {
     width: "45%",
     height: "100%",
@@ -96,7 +95,6 @@ function Home() {
       }
 
       const scene = scenes[sceneIndex - 1];
-      console.log("scene", sceneIndex);
       switch (sceneIndex) {
         case 4:
           return (
@@ -234,7 +232,7 @@ function Home() {
                 {/* Distribution Tanks */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
                   {[
-                    { data: distributionJson.tank1, mqtt: distrbutiontank1 },
+                    { data: distributionJson.tank1, mqtt: distrbutionTank1 },
                     { data: distributionJson.tank2, mqtt: distrbutionTank2 },
                     { data: distributionJson.tank3, mqtt: distrbutionTank3 },
                     { data: distributionJson.tank4, mqtt: distrbutionTank4 },
@@ -273,7 +271,7 @@ function Home() {
       ips,
       wtpInlet,
       mbrTank,
-      distrbutiontank1,
+      distrbutionTank1,
       distrbutionTank2,
       distrbutionTank3,
       distrbutionTank4,
