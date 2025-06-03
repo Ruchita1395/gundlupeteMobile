@@ -63,7 +63,8 @@
   z-index: 10;
 }
 
-.outletSection, .inletSection {
+.outletSection,
+.inletSection {
   background: white;
   border-radius: 8px;
   padding: 1rem;
@@ -78,7 +79,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  background: #f8f9fa;
+  background: #bcc4cd;
   border-radius: 6px;
   margin-bottom: 0.5rem;
   cursor: pointer;
@@ -123,12 +124,13 @@
   max-height: 0;
 }
 
-.outlet, .inlet {
+.outlet,
+.inlet {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  background: #f8f9fa;
+  /* background: #f8f9fa; */
   border-radius: 6px;
   margin-bottom: 0.5rem;
   position: relative;
@@ -214,7 +216,8 @@
     z-index: 10;
   }
 
-  .outletSection, .inletSection {
+  .outletSection,
+  .inletSection {
     padding: 0.8rem;
     position: relative;
     z-index: 10;
@@ -227,18 +230,22 @@
   }
 
   .sectionTitle {
-    font-size: 1.3vh;
+    font-size: 2vh;
     position: relative;
     z-index: 10;
+    color: #fff;
+    font-weight: 600;
   }
 
   .expandButton {
-    font-size: 1.4vh;
+    font-size: 2vh;
     position: relative;
     z-index: 10;
+    color: #fff;
   }
 
-  .outlet, .inlet {
+  .outlet,
+  .inlet {
     font-size: 1.3vh;
     position: relative;
     z-index: 10;
@@ -257,15 +264,20 @@
     position: relative;
     z-index: 10;
   }
-  .cardInfo, .sensorInfo {
+
+  .cardInfo,
+  .sensorInfo {
     text-align: left;
   }
+
   .cardInfo p {
     padding: 10px;
   }
+
   .sensorInfo div {
     padding: 10px;
   }
+
   .sensorInfo p.sensorHead {
     margin-bottom: 0.5rem;
     background: #f8f9fa;
@@ -274,16 +286,17 @@
     margin-top: 10px;
     font-weight: 600;
   }
+
   .sensorMain {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   .magneticFlowmeterSensor {
     display: flex;
     flex-direction: column;
   }
-  .otherSensor {
 
-  }
+  .otherSensor {}
 }

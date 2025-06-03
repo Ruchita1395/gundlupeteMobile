@@ -1,750 +1,756 @@
 {
   "haveri": {
-   "scenes": [
-    {
-     "buttonName": "WTP Outlet",
-     "sceneName": "WTP Outlet",
-     "tank1": {
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
+    "scenes": [
+      {
+        "buttonName": "WTP Outlet",
+        "sceneName": "WTP Outlet",
+        "tank1": {
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "right",
+            "attachmentPosition": "bottom",
+            "pipeLength": "80%",
+            "pump1": {
+              "mqtt": {
+                "dataSource": "modbus",
+                "variableName": [
+                  "s1"
+                ]
+              },
+              "name": "Pump1",
+              "pumpAttachment": "left",
+              "pumpGreenImage": "../images/pumpgreen.png",
+              "pumpRedImage": "../images/pumpred.png",
+              "waterFlow": "false"
+            },
+            "pump2": {
+              "mqtt": {
+                "dataSource": "modbus",
+                "variableName": [
+                  "s1"
+                ]
+              },
+              "name": "Pump2",
+              "pumpAttachment": "left",
+              "pumpGreenImage": "../images/pumpgreen.png",
+              "pumpRedImage": "../images/pumpred.png",
+              "waterFlow": "true"
+            },
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      0
+                    ],
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ],
+                    "source": "wtpInletMqtt"
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              },
+              {
+                "pH": {
+                  "High": 15,
+                  "image": "../images/ph-1.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      3
+                    ],
+                    "variableName": [
+                      "ph1"
+                    ],
+                    "source": "mbrMqtt"
+                  },
+                  "name": "pH",
+                  "unit": [
+                    "pH"
+                  ]
+                }
+              },
+              {
+                "turbidity": {
+                  "High": 15,
+                  "image": "../images/turbidity-1.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      1
+                    ],
+                    "variableName": [
+                      "turbidity1"
+                    ],
+                    "source": "mbrMqtt"
+                  },
+                  "name": "turbidity",
+                  "unit": [
+                    "NTU"
+                  ]
+                }
+              },
+              {
+                "CHLORINE SENSOR": {
+                  "High": 15,
+                  "image": "../images/clorine.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      2
+                    ],
+                    "variableName": [
+                      "chlorine1"
+                    ],
+                    "source": "mbrMqtt"
+                  },
+                  "name": "CHLORINE SENSOR",
+                  "unit": [
+                    "ppm"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          }
+        },
+        "tank2": {
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          }
+        },
+        "topic": "sreesubha/gundlupete/main_wtp_outlet",
+        "totalTanks": 2
       },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
+      {
+        "buttonName": "IPS",
+        "sceneName": "IPS",
+        "tank1": {
+          "capacity": "5.5",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "pipeLength": "10%",
+            "waterFlowAnimationReverse": "false"
+          },
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor"
+          },
+          "mqtt": {
+            "dataSource": "modbus",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "right",
+            "attachmentPosition": "bottom",
+            "pipeLength": "65%",
+            "pump1": {
+              "mqtt": {
+                "dataSource": "modbus",
+                "variableName": [
+                  "s1"
+                ]
+              },
+              "name": "Pump1",
+              "pumpAttachment": "left",
+              "pumpGreenImage": "../images/pumpgreen.png",
+              "pumpRedImage": "../images/pumpred.png",
+              "waterFlow": "false"
+            },
+            "pump2": {
+              "default": "Off",
+              "mqtt": {
+                "dataSource": "modbus",
+                "variableName": [
+                  "s1"
+                ]
+              },
+              "name": "Pump2",
+              "pumpAttachment": "left",
+              "pumpGreenImage": "../images/pumpgreen.png",
+              "pumpRedImage": "../images/pumpred.png",
+              "waterFlow": "true"
+            },
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 1 (OHT) - 10  Zakir Hussain Nagar"
+          }
+        },
+        "topic": "sreesubha/gundlupete/ips",
+        "totalTanks": 1
       },
-      "outlet": {
-       "attachmentDirection": "right",
-       "attachmentPosition": "bottom",
-       "pipeLength": "80%",
-       "pump1": {
-        "mqtt": {
-         "dataSource": "modbus",
-         "variableName": [
-          "s1"
-         ]
-        },
-        "name": "Pump1",
-        "pumpAttachment": "left",
-        "pumpGreenImage": "../images/pumpgreen.png",
-        "pumpRedImage": "../images/pumpred.png",
-        "waterFlow": "false"
-       },
-       "pump2": {
-        "mqtt": {
-         "dataSource": "modbus",
-         "variableName": [
-          "s1"
-         ]
-        },
-        "name": "Pump2",
-        "pumpAttachment": "left",
-        "pumpGreenImage": "../images/pumpgreen.png",
-        "pumpRedImage": "../images/pumpred.png",
-        "waterFlow": "true"
-       },
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
+      {
+        "buttonName": "Distribution",
+        "sceneName": "Distribution",
+        "tank1": {
+          "capacity": "3.4",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "inletHeight": "0%",
+            "pipeLength": "25%",
+            "sensorAttachment": "left",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlow": "left to right"
           },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        },
-        {
-         "pH": {
-          "High": 15,
-          "image": "../images/ph-1.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "4"
-           ],
-           "variableName": [
-            "ph1"
-           ]
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
           },
-          "name": "pH",
-          "unit": [
-           "pH"
-          ]
-         }
-        },
-        {
-         "turbidity": {
-          "High": 15,
-          "image": "../images/turbidity-1.png",
-          "Low": 0,
           "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "trubidity1"
-           ]
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
           },
-          "name": "turbidity",
-          "unit": [
-           "NTU"
-          ]
-         }
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      "1"
+                    ],
+                    "variableName": [
+                      "s1"
+                    ]
+                  },
+                  "name": "Pressure Sensor",
+                  "unit": [
+                    "bar"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 1 (OHT) - 10  Zakir Hussain Nagar"
+          },
+          "topic": "sreesubha/gundlupete/oht-1"
         },
-        {
-         "CHLORINE SENSOR": {
-          "High": 15,
-          "image": "../images/clorine.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "pH1"
-           ]
+        "tank2": {
+          "capacity": "7.5",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "inletHeight": "10%",
+            "pipeLength": "30%",
+            "sensorAttachment": "left",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
           },
-          "name": "CHLORINE SENSOR",
-          "unit": [
-           "pH"
-          ]
-         }
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      "1"
+                    ],
+                    "variableName": [
+                      "s1"
+                    ]
+                  },
+                  "name": "Pressure",
+                  "unit": [
+                    "bar"
+                  ]
+                }
+              }
+            ],
+            "waterFlow": "left to right"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 2 (OHT) - 15  Sheshadri Badalvaane"
+          },
+          "topic": "sreesubha/gundlupete/oht-2"
+        },
+        "tank3": {
+          "capacity": "3.0",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "pipeLength": "30%",
+            "sensorAttachment": "left",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      "1"
+                    ],
+                    "variableName": [
+                      "s1"
+                    ]
+                  },
+                  "name": "Pressure",
+                  "unit": [
+                    "bar"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 3 (OHT) - 05 LL Manasa School"
+          },
+          "topic": "sreesubha/gundlupete/oht-3"
+        },
+        "tank4": {
+          "capacity": "3.4",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "pipeLength": "30%",
+            "sensorAttachment": "left",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      "1"
+                    ],
+                    "variableName": [
+                      "s1"
+                    ]
+                  },
+                  "name": "Pressure",
+                  "unit": [
+                    "bar"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 4 (OHT) - 10 LL KSN Badalvaane"
+          },
+          "topic": "sreesubha/gundlupete/oht-4"
+        },
+        "tank5": {
+          "capacity": "7.5",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "pipeLength": "30%",
+            "sensorAttachment": "left",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "level": [
+                      "1"
+                    ],
+                    "variableName": [
+                      "s1"
+                    ]
+                  },
+                  "name": "Pressure",
+                  "unit": [
+                    "bar"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 5 (OHT) - 15 LL KHB Colony Near Deegre"
+          },
+          "topic": "sreesubha/gundlupete/oht-5"
+        },
+        "tank6": {
+          "capacity": "5.5",
+          "inlet": {
+            "attachmentDirection": "left",
+            "attachmentPosition": "top",
+            "pipeLength": "30%",
+            "sensorAttachment": "left",
+            "sensors": [],
+            "waterFlowAnimationReverse": "false"
+          },
+          "Levelsensor": {
+            "High": 15,
+            "image": "../images/levelsensor.png",
+            "Low": 0,
+            "mqtt": {
+              "dataSource": "modbus",
+              "variableName": [
+                "s1"
+              ]
+            },
+            "name": "Levelsensor",
+            "units": "m"
+          },
+          "mqtt": {
+            "dataSource": "io",
+            "variableName": [
+              "s1"
+            ]
+          },
+          "outlet": {
+            "attachmentDirection": "top",
+            "attachmentPosition": "bottom",
+            "pipeLength": "30%",
+            "sensorAttachment": "right",
+            "sensors": [
+              {
+                "magneticFlowMeter": {
+                  "High": 15,
+                  "image": "../images/flowmeter.png",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "modbus",
+                    "variableName": [
+                      "flowrate1",
+                      "totaliser1"
+                    ]
+                  },
+                  "name": "magneticFlowMeter",
+                  "unit": [
+                    "m3/s",
+                    "m3"
+                  ]
+                }
+              }
+            ],
+            "waterFlowAnimationReverse": "false"
+          },
+          "tankExtraDetails": {
+            "lastUpdateDate": "00-00-0000",
+            "tankName": "Zone 6 (MBR) - 40  Ramdevra Gudda"
+          },
+          "topic": "sreesubha/gundlupete/mbr"
         }
-       ],
-       "waterFlowAnimationReverse": "false"
       }
-     },
-     "tank2": {
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      }
-     },
-     "topic": "sreesubha/gundlupete/main_wtp_outlet",
-     "totalTanks": 2
-    },
-    {
-     "buttonName": "IPS",
-     "sceneName": "IPS",
-     "tank1": {
-      "capacity": "5.5",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "pipeLength": "10%",
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor"
-      },
-      "mqtt": {
-       "dataSource": "modbus",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "right",
-       "attachmentPosition": "bottom",
-       "pipeLength": "65%",
-       "pump1": {
-        "mqtt": {
-         "dataSource": "modbus",
-         "variableName": [
-          "s1"
-         ]
-        },
-        "name": "Pump1",
-        "pumpAttachment": "left",
-        "pumpGreenImage": "../images/pumpgreen.png",
-        "pumpRedImage": "../images/pumpred.png",
-        "waterFlow": "false"
-       },
-       "pump2": {
-        "default": "Off",
-        "mqtt": {
-         "dataSource": "modbus",
-         "variableName": [
-          "s1"
-         ]
-        },
-        "name": "Pump2",
-        "pumpAttachment": "left",
-        "pumpGreenImage": "../images/pumpgreen.png",
-        "pumpRedImage": "../images/pumpred.png",
-        "waterFlow": "true"
-       },
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 1 (OHT) - 10  Zakir Hussain Nagar"
-      }
-     },
-     "topic": "sreesubha/gundlupete/ips",
-     "totalTanks": 1
-    },
-    {
-     "buttonName": "Distribution",
-     "sceneName": "Distribution",
-     "tank1": {
-      "capacity": "3.4",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "inletHeight": "0%",
-       "pipeLength": "25%",
-       "sensorAttachment": "left",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlow": "left to right"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "Pressure Transmittter": {
-          "High": 15,
-          "image": "../images/pressure.jpeg",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "s1"
-           ]
-          },
-          "name": "Pressure Sensor",
-          "unit": [
-           "bar"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 1 (OHT) - 10  Zakir Hussain Nagar"
-      },
-      "topic": "sreesubha/gundlupete/oht-1"
-     },
-     "tank2": {
-      "capacity": "7.5",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "inletHeight": "10%",
-       "pipeLength": "30%",
-       "sensorAttachment": "left",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "Pressure Transmittter": {
-          "High": 15,
-          "image": "../images/pressure.jpeg",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "s1"
-           ]
-          },
-          "name": "Pressure",
-          "unit": [
-           "bar"
-          ]
-         }
-        }
-       ],
-       "waterFlow": "left to right"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 2 (OHT) - 15  Sheshadri Badalvaane"
-      },
-      "topic": "sreesubha/gundlupete/oht-2"
-     },
-     "tank3": {
-      "capacity": "3.0",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "pipeLength": "30%",
-       "sensorAttachment": "left",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "Pressure Transmittter": {
-          "High": 15,
-          "image": "../images/pressure.jpeg",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "s1"
-           ]
-          },
-          "name": "Pressure",
-          "unit": [
-           "bar"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 3 (OHT) - 05 LL Manasa School"
-      },
-      "topic": "sreesubha/gundlupete/oht-3"
-     },
-     "tank4": {
-      "capacity": "3.4",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "pipeLength": "30%",
-       "sensorAttachment": "left",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "Pressure Transmittter": {
-          "High": 15,
-          "image": "../images/pressure.jpeg",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "s1"
-           ]
-          },
-          "name": "Pressure",
-          "unit": [
-           "bar"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 4 (OHT) - 10 LL KSN Badalvaane"
-      },
-      "topic": "sreesubha/gundlupete/oht-4"
-     },
-     "tank5": {
-      "capacity": "7.5",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "pipeLength": "30%",
-       "sensorAttachment": "left",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "Pressure Transmittter": {
-          "High": 15,
-          "image": "../images/pressure.jpeg",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "level": [
-            "1"
-           ],
-           "variableName": [
-            "s1"
-           ]
-          },
-          "name": "Pressure",
-          "unit": [
-           "bar"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 5 (OHT) - 15 LL KHB Colony Near Deegre"
-      },
-      "topic": "sreesubha/gundlupete/oht-5"
-     },
-     "tank6": {
-      "capacity": "5.5",
-      "inlet": {
-       "attachmentDirection": "left",
-       "attachmentPosition": "top",
-       "pipeLength": "30%",
-       "sensorAttachment": "left",
-       "sensors": [
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "Levelsensor": {
-       "High": 15,
-       "image": "../images/levelsensor.png",
-       "Low": 0,
-       "mqtt": {
-        "dataSource": "modbus",
-        "variableName": [
-         "s1"
-        ]
-       },
-       "name": "Levelsensor",
-       "units": "m"
-      },
-      "mqtt": {
-       "dataSource": "io",
-       "variableName": [
-        "s1"
-       ]
-      },
-      "outlet": {
-       "attachmentDirection": "top",
-       "attachmentPosition": "bottom",
-       "pipeLength": "30%",
-       "sensorAttachment": "right",
-       "sensors": [
-        {
-         "magneticFlowMeter": {
-          "High": 15,
-          "image": "../images/flowmeter.png",
-          "Low": 0,
-          "mqtt": {
-           "dataSource": "modbus",
-           "variableName": [
-            "flowrate1",
-            "totaliser1"
-           ]
-          },
-          "name": "magneticFlowMeter",
-          "unit": [
-           "m3/s",
-           "m3"
-          ]
-         }
-        }
-       ],
-       "waterFlowAnimationReverse": "false"
-      },
-      "tankExtraDetails": {
-       "lastUpdateDate": "00-00-0000",
-       "tankName": "Zone 6 (MBR) - 40  Ramdevra Gudda"
-      },
-      "topic": "sreesubha/gundlupete/mbr"
-     }
-    }
-   ]
+    ]
   }
- }
+}

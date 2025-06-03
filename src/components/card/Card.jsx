@@ -42,9 +42,15 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
               
               <div className={`${styles.sectionContent} ${!expandedSections.outlet ? styles.collapsed : ''}`}>
                 <div className={styles.outlet}>
-                  <span>Position</span>
+                  <span>Attachment Position</span>
                   <span className={styles.position}>
                     {pipeData.outlet.attachmentPosition}
+                  </span>
+                </div>
+                <div className={styles.outlet}>
+                  <span>Attachment Direction</span>
+                  <span className={styles.position}>
+                    {pipeData.outlet.attachmentDirection}
                   </span>
                 </div>
                 
@@ -63,6 +69,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                   <div className={styles.sensorInfo}>
                     <p className={styles.sensorHead}>Sensors Attachment:</p>
                     {pipeData.outlet.sensors.map((ele, index) => {
+                      // debugger;
                       const sensorKey = Object.keys(ele)[0];
                       const sensor = ele[sensorKey];
                       const mqttInfo = sensor?.mqtt || {};
@@ -70,20 +77,26 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                       const units = sensor?.unit || [];
                       const dataSource = mqttInfo?.dataSource;
                       const level = mqttInfo?.level || "0";
-                      const modbusData = sensorMbrdata?.iotData?.data?.[dataSource]?.[level];
+                      console.log("sensorKey...........", sensorKey);
+                      console.log("source.........", mqttInfo["source"]);
+                      let modbusData;
+                      switch (mqttInfo["source"]) {
+                        case 'wtpInletMqtt':
+                          modbusData = mqttInletData?.iotData?.data?.[dataSource]?.[level];
+                        break;
+                        case 'mbrMqtt':
+                          modbusData = sensorMbrdata?.iotData?.data?.[dataSource]?.[level];
+                        break;
+                        default:
+                          modbusData = mqttData?.iotData?.data?.[dataSource]?.[level];
+                        break;
+                      }
+                      
                       console.log("modbus Data...", modbusData);
                       // const modbusData = mqttData?.iotData?.data?.[dataSource]?.[level];
                       const values = variableNames.map(
                         (varName) => modbusData?.[varName] ?? 0.0
                       );
-                      // console.log("modbus data....", modbusData);
-                      // const values = variableNames.map(
-                      //   (varName) => modbusData?.[varName] ?? 0.0
-                      // );
-                      // const currentFlow=values[0] ?? 0.0
-                      // const totalFlow=values[1] ?? 0.0
-                      // const value=values[0] ?? 0.0
-                      // const unit=units
                       return (
                         <div key={index} style={{ marginLeft: '0.5rem' }} className={styles.sensorMain}>
                           <p>{sensor.name}</p>
