@@ -82,7 +82,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -234,7 +234,9 @@
                 "variableName": [
                   "flowrate1"
                 ],
-                "level": [0]
+                "level": [
+                  0
+                ]
               },
               "name": "Pump2",
               "pumpAttachment": "left",
@@ -259,7 +261,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -301,7 +303,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -386,7 +388,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -470,7 +472,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -554,7 +556,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -638,7 +640,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }
@@ -749,7 +751,7 @@
                   },
                   "name": "magneticFlowMeter",
                   "unit": [
-                    "m3/s",
+                    "m3/hr",
                     "m3"
                   ]
                 }

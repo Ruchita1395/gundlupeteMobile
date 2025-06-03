@@ -124,7 +124,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
               </div>
 
               <div className={`${styles.sectionContent} ${!expandedSections.outlet ? styles.collapsed : ''}`}>
-                <div className={styles.outlet}>
+                {/* <div className={styles.outlet}>
                   <span>Attachment Position</span>
                   <span className={styles.position}>
                     {pipeData.outlet.attachmentPosition}
@@ -141,7 +141,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                 )}
                 {pipeData?.outlet?.pump2 && renderPumpStatus(
                   pipeData.outlet.pump2
-                )}
+                )} */}
                 {renderWaterFlow(pipeData?.outlet?.sensors)}
 
                 {pipeData?.outlet?.sensors && pipeData.outlet.sensors.length > 0 && (
@@ -153,14 +153,11 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                       const sensor = ele[sensorKey];
                       const units = sensor?.unit || [];
                       const values = getSensorMqttInfo(sensor);
-                      // const values = variableNames.map(
-                      //   (varName) => modbusData?.[varName] ?? 0.0
-                      // );
                       return (
                         <div key={index} style={{ marginLeft: '0.5rem' }} className={styles.sensorMain}>
                           <p>{sensor.name}</p>
                           {(() => {
-                            if (sensorKey === 'magneticFlowMeter') return <div className={styles.magneticFlowmeterSensor}><div><span>CF:</span> <span><b>{values[0]}</b> {units}</span></div><div><span>TF:</span> <span><b>{values[1]}</b> {units}</span></div></div>;
+                            if (sensorKey === 'magneticFlowMeter') return <div className={styles.magneticFlowmeterSensor}><div><span>CF:</span> <span><b>{values[0]}</b> {units[0]}</span></div><div><span>TF:</span> <span><b>{values[1]}</b> {units[1]}</span></div></div>;
                             if (sensorKey !== 'magneticFlowMeter') return <div className={styles.otherSensor}><span><b>{values[0]}</b> {units}</span></div>;
                           })()}
                         </div>
@@ -185,7 +182,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
               </div>
 
               <div className={`${styles.sectionContent} ${!expandedSections.inlet ? styles.collapsed : ''}`}>
-                <div className={styles.inlet}>
+                {/* <div className={styles.inlet}>
                   <span>Position</span>
                   <span className={styles.position}>
                     {pipeData.inlet.attachmentPosition}
@@ -196,7 +193,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                 )}
                 {pipeData?.inlet?.pump2 && renderPumpStatus(
                   pipeData.inlet.pump2
-                )}
+                )} */}
                 {renderWaterFlow(pipeData?.inlet?.sensors)}
                 {pipeData?.inlet?.sensors && pipeData.inlet.sensors.length > 0 && (
                   <div className={styles.sensorInfo}>
@@ -211,7 +208,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
                         <div key={index} style={{ marginLeft: '0.5rem' }} className={styles.sensorMain}>
                           <p>{sensor.name}</p>
                           {(() => {
-                            if (sensorKey === 'magneticFlowMeter') return <div className={styles.magneticFlowmeterSensor}><div><span>CF:</span> <span><b>{values[0]}</b> {units}</span></div><div><span>TF:</span> <span><b>{values[1]}</b> {units}</span></div></div>;
+                            if (sensorKey === 'magneticFlowMeter') return <div className={styles.magneticFlowmeterSensor}><div><span>CF:</span> <span><b>{values[0]}</b> {units[0]}</span></div><div><span>TF:</span> <span><b>{values[1]}</b> {units[1]}</span></div></div>;
                             if (sensorKey !== 'magneticFlowMeter') return <div className={styles.otherSensor}><span><b>{values[0]}</b> {units}</span></div>;
                           })()}
                         </div>
