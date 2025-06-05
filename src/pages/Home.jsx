@@ -1,27 +1,17 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import "../App.css";
 import Tank from "../components/tank/Tank";
-import PipeOutlet from "../components/pipeOutlet/PipeOutlet";
 import Headers from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import ClariFlocculator from "../components/clariFlocculator/ClariFlocculator";
-import AlumDosingPump from "../components/alumDosingPump/AlumDosingPump";
-import AlumMixer from "../components/alumMixer/AlumMixer";
-import { IotData, Translate } from "aws-sdk";
-import Tooltip from "../components/tooltip/Tooltip";
 // import "../styles/Home.css";
 import useData from "../data/useData";
-import KabiniRever from "../components/kabiniRever/KabiniRever";
-import Loader from "../components/loader/Loader";
-import { getUserPoolObj, getAWSCredentials } from "../utils/awsConfig.js";
-import AWS from "aws-sdk";
 
+import Loader from "../components/loader/Loader";
 import useIoTConnection from "../hooks/useIoTConnection.js";
 import Card from "../components/card/Card.jsx";
 
 function Home() {
   const {
-    jackwell,
     wtpOutlet,
     wtpInlet,
     ips,
@@ -55,7 +45,6 @@ function Home() {
     wtpOutletJson_tank1,
     wtpOutletJson_tank2,
     ipsJson,
-    wtpInletJson,
     distributionJson,
   } = useData();
 
@@ -96,63 +85,6 @@ function Home() {
 
       const scene = scenes[sceneIndex - 1];
       switch (sceneIndex) {
-        case 4:
-          return (
-            <section
-              className={`${activeSection === 5 ? "jackwell" : "hide"} fade-in`}
-            >
-              {jackwellJson?.KabiniRever && (
-                <div className="jackwell-container">
-                  <KabiniRever
-                    name={jackwellJson?.KabiniRever?.name}
-                    pipeData={jackwellJson.KabiniRever}
-                    mqttData={jackwell}
-                  />
-                </div>
-              )}
-            </section>
-          );
-        case 5:
-          return (
-            <section
-              className={`section ${
-                activeSection === 4 ? "wtp-inlet" : "hide"
-              } fade-in`}
-            >
-              <div className="wtp-inlet-container">
-                <div className="claroflocculator-container">
-                  <ClariFlocculator
-                    waterOn={true}
-                    wtpInletData={wtpInletJson?.Clariflocculator}
-                    mqttData={wtpInlet}
-                  />
-                </div>
-                <div className="alum-dosing-pump-container">
-                  {wtpInletJson?.AlumDosingPump && (
-                    // <AlumDosingPump
-                    //   waterOn={true}
-                    //   alumDosingPump={wtpInletJson.AlumDosingPump}
-                    // />
-                    <div className="alumdosing-container">
-                      <AlumDosingPump waterOn={true} />
-                    </div>
-                  )}
-                </div>
-                <div className="alum-mixer-container">
-                  {(wtpInletJson?.AlumMixer1 || wtpInletJson?.AlumMixer2) && (
-                    <div className="alum-mixer-main">
-                      {wtpInletJson?.AlumMixer1 && (
-                        <AlumMixer alumMixer={wtpInletJson?.AlumMixer1} />
-                      )}
-                      {wtpInletJson?.AlumMixer2 && (
-                        <AlumMixer alumMixer={wtpInletJson?.AlumMixer2} />
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </section>
-          );
         case 1:
           return (
             <section
@@ -264,9 +196,7 @@ function Home() {
       wtpOutletJson_tank1,
       wtpOutletJson_tank2,
       ipsJson,
-      wtpInletJson,
       scenes,
-      jackwell,
       wtpOutlet,
       ips,
       wtpInlet,
@@ -276,7 +206,6 @@ function Home() {
       distrbutionTank3,
       distrbutionTank4,
       distrbutionTank5,
-
       lastUpdated,
       connectionStatus,
       error,

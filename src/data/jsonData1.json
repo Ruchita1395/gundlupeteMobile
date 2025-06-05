@@ -10,7 +10,7 @@
             "image": "../images/levelsensor.png",
             "Low": 0,
             "mqtt": {
-              "dataSource": "modbus",
+              "dataSource": "io",
               "variableName": [
                 "s1"
               ]
@@ -80,7 +80,7 @@
                     ],
                     "source": "wtpInletMqtt"
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -160,9 +160,9 @@
             "image": "../images/levelsensor.png",
             "Low": 0,
             "mqtt": {
-              "dataSource": "modbus",
+              "dataSource": "io",
               "variableName": [
-                "s1"
+                "s2"
               ]
             },
             "name": "Levelsensor",
@@ -171,7 +171,7 @@
           "mqtt": {
             "dataSource": "io",
             "variableName": [
-              "s1"
+              "s2"
             ]
           }
         },
@@ -202,7 +202,7 @@
             "name": "Levelsensor"
           },
           "mqtt": {
-            "dataSource": "modbus",
+            "dataSource": "io",
             "variableName": [
               "s1"
             ]
@@ -259,7 +259,7 @@
                     ],
                     "level": [0]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -301,7 +301,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -386,7 +386,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -470,7 +470,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -554,7 +554,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -638,7 +638,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"
@@ -749,7 +749,7 @@
                       "totaliser1"
                     ]
                   },
-                  "name": "magneticFlowMeter",
+                  "name": "FlowMeter",
                   "unit": [
                     "m3/hr",
                     "m3"

@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Sensor from "./components/sensor/Sensor";
 import PipeOutlet from "./components/pipeOutlet/PipeOutlet";
 import Test from "./Test";
-import { SensorProvider } from "./contextData/SensorContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,15 +16,10 @@ function App() {
     {
       path: "/online_Monitoring",
       element: <Home />,
-      
     },
   ]);
 
-  return  (
-    <SensorProvider>
-      <RouterProvider router={router} />
-    </SensorProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

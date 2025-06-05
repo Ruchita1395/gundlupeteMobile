@@ -4,7 +4,7 @@ import TankCap from "./TankCap";
 import PipeOutlet from "../pipeOutlet/PipeOutlet";
 import PipeInlet from "../pipeInlet/PipeInlet";
 import useData from "../../data/useData";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 /**
  * Tank component for displaying water tanks with inlet/outlet pipes and level indicators
@@ -39,31 +39,26 @@ const Tank = memo(
     const pipeOutletWidth = pipeData?.outlet?.pipeLength || "50%";
     const levelSensorImg = pipeData?.Levelsensor?.image || "";
     const levelSensorUnits = pipeData?.Levelsensor?.units || "m";
+    const dataSource = pipeData?.mqtt?.dataSource || "io";
+    const variableName = pipeData?.mqtt?.variableName[0] || "s1";
 
     // const tankCapacity = parseFloat(pipeData?.capacity) || 0;
     const [tankCapacity, setTankCapacity] = useState(0);
 
-    // Determine water flow status
-    // const waterflow = useMemo(() => {
-    //   if (!pipeData?.outlet) return false;
-    //   return (
-    //     pipeData?.outlet?.pump1?.waterFlow === "true" ||
-    //     pipeData?.outlet?.pump2?.waterFlow === "true" ||
-    //     pipeData?.outlet?.pump3?.waterFlow === "true" ||
-    //     pipeData?.outlet?.pump4?.waterFlow === "true"
-    //   );
-    // }, [pipeData?.outlet]);
     const waterflow = useMemo(() => {
       const flow1 = mqttData?.iotData?.data?.modbus?.[0]?.flowrate1 || 0;
-      const flow2 = seperateMqttData?.iotData?.data?.modbus?.[0]?.flowrate1 || 0;
+      const flow2 =
+        seperateMqttData?.iotData?.data?.modbus?.[0]?.flowrate1 || 0;
       return flow1 > 0 || flow2 > 0;
     }, [mqttData, seperateMqttData]);
 
+      console.log("dataSource", dataSource);
+      console.log("variableName", variableName);
     // Update height when level changes
     useEffect(() => {
       const currentLevel = seperateMqttData
-        ? seperateMqttData?.iotData?.data?.io?.s1
-        : mqttData?.iotData?.data?.io?.s1 || 0;
+        ? seperateMqttData?.iotData?.data?.[dataSource]?.[variableName]
+        : mqttData?.iotData?.data?.[dataSource]?.[variableName] || 0;
       setLevel(currentLevel);
 
       const capacity = parseFloat(pipeData?.capacity) || 0;
@@ -80,7 +75,7 @@ const Tank = memo(
       } catch (error) {
         console.error("Error calculating tank height:", error);
       }
-    }, [mqttData]);
+    }, [mqttData, seperateMqttData]);
 
     // Generate CSS class for inlet pipe position
     const inletPositionClass = useMemo(() => {
