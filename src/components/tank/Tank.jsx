@@ -26,6 +26,7 @@ const Tank = memo(
     pipeData,
     mqttData,
     seperateMqttData,
+    pressureMqttData
   }) => {
     const [height, setHeight] = useState(0);
     const [level, setLevel] = useState(0);
@@ -52,8 +53,7 @@ const Tank = memo(
       return flow1 > 0 || flow2 > 0;
     }, [mqttData, seperateMqttData]);
 
-      console.log("dataSource", dataSource);
-      console.log("variableName", variableName);
+  
     // Update height when level changes
     useEffect(() => {
       const currentLevel = seperateMqttData

@@ -21,6 +21,12 @@ function Home() {
     distrbutionTank3,
     distrbutionTank4,
     distrbutionTank5,
+    distributionPressureMbr,
+    distributionPressure1,
+    distributionPressure2,
+    distributionPressure3,
+    distributionPressure4,
+    distributionPressure5,
     lastUpdated,
     connectionStatus,
     error,
@@ -38,6 +44,7 @@ function Home() {
     distrbutionTank4?.iotData?.data?.io?.s1,
     distrbutionTank5?.iotData?.data?.io?.s1,
   ]);
+  // console.log("distributionPressureMbr", distributionPressureMbr);
 
   const {
     scenes = [],
@@ -146,9 +153,22 @@ function Home() {
                 activeSection === 3 ? "distribution" : "hide"
               } fade-in`}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', padding: '20px' }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "30px",
+                  padding: "20px",
+                }}
+              >
                 {/* MBR Tank */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "15px",
+                  }}
+                >
                   <Tank
                     tankstyle={tankstyle}
                     pipeData={distributionJson?.tank6}
@@ -157,20 +177,34 @@ function Home() {
                   <Card
                     pipeData={distributionJson.tank6}
                     mqttData={mbrTank}
+                    pressureMqttData={distributionPressureMbr}
                     lastUpdatedTime={lastUpdatedTime}
                   />
                 </div>
 
                 {/* Distribution Tanks */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "30px",
+                  }}
+                >
                   {[
-                    { data: distributionJson.tank1, mqtt: distrbutionTank1 },
-                    { data: distributionJson.tank2, mqtt: distrbutionTank2 },
-                    { data: distributionJson.tank3, mqtt: distrbutionTank3 },
-                    { data: distributionJson.tank4, mqtt: distrbutionTank4 },
-                    { data: distributionJson.tank5, mqtt: distrbutionTank5 }
+                    { data: distributionJson.tank1, mqtt: distrbutionTank1 , pressureMqttData: distributionPressure1},
+                    { data: distributionJson.tank2, mqtt: distrbutionTank2 , pressureMqttData: distributionPressure2},
+                    { data: distributionJson.tank3, mqtt: distrbutionTank3 , pressureMqttData: distributionPressure3},
+                    { data: distributionJson.tank4, mqtt: distrbutionTank4 , pressureMqttData: distributionPressure4},
+                    { data: distributionJson.tank5, mqtt: distrbutionTank5 , pressureMqttData: distributionPressure5},
                   ].map((tank, index) => (
-                    <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "15px",
+                      }}
+                    >
                       <Tank
                         tankstyle={smalltankstyle}
                         pipeData={tank.data}
@@ -179,6 +213,7 @@ function Home() {
                       <Card
                         pipeData={tank.data}
                         mqttData={tank.mqtt}
+                        pressureMqttData={tank.pressureMqttData}
                         lastUpdatedTime={lastUpdatedTime}
                       />
                     </div>

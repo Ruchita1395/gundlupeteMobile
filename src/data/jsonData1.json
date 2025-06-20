@@ -11,18 +11,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "io",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "right",
@@ -31,12 +27,8 @@
             "pump1": {
               "mqtt": {
                 "dataSource": "modbus",
-                "variableName": [
-                  "flowrate1"
-                ],
-                "level": [
-                  0
-                ],
+                "variableName": ["flowrate1"],
+                "level": [0],
                 "source": "wtpInletMqtt"
               },
               "name": "Pump1",
@@ -48,12 +40,8 @@
             "pump2": {
               "mqtt": {
                 "dataSource": "modbus",
-                "variableName": [
-                  "flowrate1"
-                ],
-                "level": [
-                  0
-                ],
+                "variableName": ["flowrate1"],
+                "level": [0],
                 "source": "wtpInletMqtt"
               },
               "name": "Pump2",
@@ -71,20 +59,12 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "level": [
-                      0
-                    ],
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ],
+                    "level": [0],
+                    "variableName": ["flowrate1", "totaliser1"],
                     "source": "wtpInletMqtt"
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               },
               {
@@ -94,18 +74,12 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "level": [
-                      3
-                    ],
-                    "variableName": [
-                      "ph1"
-                    ],
+                    "level": [3],
+                    "variableName": ["ph1"],
                     "source": "mbrMqtt"
                   },
                   "name": "pH",
-                  "unit": [
-                    "pH"
-                  ]
+                  "unit": ["pH"]
                 }
               },
               {
@@ -115,18 +89,12 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "level": [
-                      1
-                    ],
-                    "variableName": [
-                      "turbidity1"
-                    ],
+                    "level": [1],
+                    "variableName": ["turbidity1"],
                     "source": "mbrMqtt"
                   },
                   "name": "turbidity",
-                  "unit": [
-                    "NTU"
-                  ]
+                  "unit": ["NTU"]
                 }
               },
               {
@@ -136,18 +104,12 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "level": [
-                      2
-                    ],
-                    "variableName": [
-                      "chlorine1"
-                    ],
+                    "level": [2],
+                    "variableName": ["chlorine1"],
                     "source": "mbrMqtt"
                   },
                   "name": "CHLORINE SENSOR",
-                  "unit": [
-                    "ppm"
-                  ]
+                  "unit": ["ppm"]
                 }
               }
             ],
@@ -161,18 +123,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "io",
-              "variableName": [
-                "s2"
-              ]
+              "variableName": ["s2"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s2"
-            ]
+            "variableName": ["s2"]
           }
         },
         "topic": "sreesubha/gundlupete/main_wtp_outlet",
@@ -195,17 +153,13 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "right",
@@ -214,12 +168,8 @@
             "pump1": {
               "mqtt": {
                 "dataSource": "modbus",
-                "variableName": [
-                  "flowrate1"
-                ],
-                "level": [
-                  0
-                ]
+                "variableName": ["flowrate1"],
+                "level": [0]
               },
               "name": "Pump1",
               "pumpAttachment": "left",
@@ -231,12 +181,8 @@
               "default": "Off",
               "mqtt": {
                 "dataSource": "modbus",
-                "variableName": [
-                  "flowrate1"
-                ],
-                "level": [
-                  0
-                ]
+                "variableName": ["flowrate1"],
+                "level": [0]
               },
               "name": "Pump2",
               "pumpAttachment": "left",
@@ -253,17 +199,11 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ],
+                    "variableName": ["flowrate1", "totaliser1"],
                     "level": [0]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -296,16 +236,10 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -317,18 +251,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -342,18 +272,13 @@
                   "image": "../images/pressure.jpeg",
                   "Low": 0,
                   "mqtt": {
-                    "dataSource": "modbus",
-                    "level": [
-                      0
-                    ],
-                    "variableName": [
-                      "s1"
-                    ]
+                    "dataSource": "io",
+                    "level": [0],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
                   },
                   "name": "Pressure Sensor",
-                  "unit": [
-                    "bar"
-                  ]
+                  "unit": ["bar"]
                 }
               }
             ],
@@ -381,16 +306,10 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -402,18 +321,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -427,18 +342,13 @@
                   "image": "../images/pressure.jpeg",
                   "Low": 0,
                   "mqtt": {
-                    "dataSource": "modbus",
-                    "level": [
-                      "1"
-                    ],
-                    "variableName": [
-                      "s1"
-                    ]
+                    "dataSource": "io",
+                    "level": ["1"],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
                   },
                   "name": "Pressure",
-                  "unit": [
-                    "bar"
-                  ]
+                  "unit": ["bar"]
                 }
               }
             ],
@@ -465,16 +375,10 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -486,18 +390,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -511,18 +411,13 @@
                   "image": "../images/pressure.jpeg",
                   "Low": 0,
                   "mqtt": {
-                    "dataSource": "modbus",
-                    "level": [
-                      "1"
-                    ],
-                    "variableName": [
-                      "s1"
-                    ]
+                    "dataSource": "io",
+                    "level": ["0"],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
                   },
                   "name": "Pressure",
-                  "unit": [
-                    "bar"
-                  ]
+                  "unit": ["bar"]
                 }
               }
             ],
@@ -549,16 +444,10 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -570,18 +459,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -595,18 +480,13 @@
                   "image": "../images/pressure.jpeg",
                   "Low": 0,
                   "mqtt": {
-                    "dataSource": "modbus",
-                    "level": [
-                      "1"
-                    ],
-                    "variableName": [
-                      "s1"
-                    ]
+                    "dataSource": "io",
+                    "level": ["1"],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
                   },
                   "name": "Pressure",
-                  "unit": [
-                    "bar"
-                  ]
+                  "unit": ["bar"]
                 }
               }
             ],
@@ -633,16 +513,10 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
                 }
               }
             ],
@@ -654,18 +528,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -679,18 +549,13 @@
                   "image": "../images/pressure.jpeg",
                   "Low": 0,
                   "mqtt": {
-                    "dataSource": "modbus",
-                    "level": [
-                      "1"
-                    ],
-                    "variableName": [
-                      "s1"
-                    ]
+                    "dataSource": "io",
+                    "level": ["1"],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
                   },
                   "name": "Pressure",
-                  "unit": [
-                    "bar"
-                  ]
+                  "unit": ["bar"]
                 }
               }
             ],
@@ -718,18 +583,14 @@
             "Low": 0,
             "mqtt": {
               "dataSource": "modbus",
-              "variableName": [
-                "s1"
-              ]
+              "variableName": ["s1"]
             },
             "name": "Levelsensor",
             "units": "m"
           },
           "mqtt": {
             "dataSource": "io",
-            "variableName": [
-              "s1"
-            ]
+            "variableName": ["s1"]
           },
           "outlet": {
             "attachmentDirection": "top",
@@ -744,16 +605,25 @@
                   "Low": 0,
                   "mqtt": {
                     "dataSource": "modbus",
-                    "variableName": [
-                      "flowrate1",
-                      "totaliser1"
-                    ]
+                    "variableName": ["flowrate1", "totaliser1"]
                   },
                   "name": "FlowMeter",
-                  "unit": [
-                    "m3/hr",
-                    "m3"
-                  ]
+                  "unit": ["m3/hr", "m3"]
+                }
+              },
+              {
+                "Pressure Transmittter": {
+                  "High": 15,
+                  "image": "../images/pressure.jpeg",
+                  "Low": 0,
+                  "mqtt": {
+                    "dataSource": "io",
+                    "level": [0],
+                    "variableName": ["s1"],
+                    "source": "pressureMqtt"
+                  },
+                  "name": "Pressure Sensor",
+                  "unit": ["bar"]
                 }
               }
             ],

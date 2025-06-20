@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
 
-function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdata }) {
+function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdata, pressureMqttData}) {
   const [showDetails, setShowDetails] = React.useState(true);
   const [expandedSections, setExpandedSections] = React.useState({
     outlet: true,
@@ -14,12 +14,14 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
     waterLevel = 0.0
   }
 
+  // console.log("pressureMqttData", pressureMqttData);
   function toggleSection(section) {
     setExpandedSections(prev => ({
       ...prev,
       [section]: !prev[section]
     }));
   }
+   
 
   function checkStatus(pumpData) {
     const source = pumpData?.mqtt?.source;
@@ -27,6 +29,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
     const level = pumpData?.mqtt?.level;
     const variableNames = pumpData?.mqtt?.variableName;
     let modbusData;
+
     switch (source) {
       case 'mbrMqtt':
         modbusData = sensorMbrdata?.iotData?.data?.[dataSource]?.[level];
@@ -50,7 +53,9 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
     const variableNames = mqttInfo?.variableName || [];
     const dataSource = mqttInfo?.dataSource;
     const level = mqttInfo?.level || "0";
+    // console.log("mqttInfo", mqttInfo);
     let modbusData;
+     let modbusData1;
     switch (mqttInfo["source"]) {
       case 'wtpInletMqtt':
         modbusData = mqttInletData?.iotData?.data?.[dataSource]?.[level];
@@ -58,10 +63,15 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
       case 'mbrMqtt':
         modbusData = sensorMbrdata?.iotData?.data?.[dataSource]?.[level];
         break;
+      case 'pressureMqtt':
+        modbusData = pressureMqttData?.iotData?.data?.[dataSource]
+        break;
       default:
         modbusData = mqttData?.iotData?.data?.[dataSource]?.[level];
         break;
     }
+
+    console.log("modbusData", modbusData1);
     const values = variableNames.map(
       (varName) => modbusData?.[varName] ?? 0.0
     );

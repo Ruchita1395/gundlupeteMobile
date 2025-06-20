@@ -13,6 +13,12 @@ const TOPICS = {
   OHT_3: "sreesubha/gundlupete/oht-3",
   OHT_4: "sreesubha/gundlupete/oht-4",
   OHT_5: "sreesubha/gundlupete/oht-5",
+  MBR_6a: "sreesubha/gundlupete/mbr-6a",
+  OHT_1a: "sreesubha/gundlupete/oht-1a",
+  OHT_2a: "sreesubha/gundlupete/oht-2a",
+  OHT_3a: "sreesubha/gundlupete/oht-3a",
+  OHT_4a: "sreesubha/gundlupete/oht-4a",
+  OHT_5a: "sreesubha/gundlupete/oht-5a",
 };
 
 // IoT endpoint
@@ -20,7 +26,6 @@ const IOT_ENDPOINT = "a1ruirjvjwioo0-ats.iot.ap-south-1.amazonaws.com";
 
 // Custom hook for IoT connection and messaging
 export default function useIoTConnection() {
-
   const [iotData2, setIotData2] = useState({});
   const [jackwell, setJackwell] = useState({});
   const [wtpOutlet, setWtpOutlet] = useState({});
@@ -33,6 +38,12 @@ export default function useIoTConnection() {
   const [distrbutionTank3, setDistrbutionTank3] = useState({});
   const [distrbutionTank4, setDistrbutionTank4] = useState({});
   const [distrbutionTank5, setDistrbutionTank5] = useState({});
+  const [distributionPressureMbr, setDistributionPressureMbr] = useState({});
+  const [distributionPressure1, setDistributionPressure1] = useState({});
+  const [distributionPressure2, setDistributionPressure2] = useState({});
+  const [distributionPressure3, setDistributionPressure3] = useState({});
+  const [distributionPressure4, setDistributionPressure4] = useState({});
+  const [distributionPressure5, setDistributionPressure5] = useState({});
 
   const [tank1, setTank1] = useState(0);
   const [tank2, setTank2] = useState(0);
@@ -45,7 +56,7 @@ export default function useIoTConnection() {
   const [connectionStatus, setConnectionStatus] = useState("disconnected");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const checkAndRefreshCredentials = async () => {
       // console.log("check and refresh credentials.....");
@@ -83,7 +94,7 @@ export default function useIoTConnection() {
         // window.location.href = "/";
         navigate("/");
       }
-    }
+    };
     const refreshSession = async () => {
       return new Promise((resolve, reject) => {
         const userPool = getUserPoolObj();
@@ -182,19 +193,16 @@ export default function useIoTConnection() {
           if (topic === "sreesubha/gundlupete/main_wtp_outlet") {
             if (iotData?.data?.modbus) {
               setWtpOutlet((prevData) => ({ ...prevData, iotData }));
-             
             }
           }
           if (topic === "sreesubha/gundlupete/ips") {
             if (iotData?.data?.modbus) {
               setIps((prevData) => ({ ...prevData, iotData }));
-
             }
           }
           if (topic === "sreesubha/gundlupete/main_wtp_inlet") {
             if (iotData?.data?.modbus || iotData?.data?.io) {
               setWtpInlet((prevData) => ({ ...prevData, iotData }));
-               
             }
           }
           if (topic === "sreesubha/gundlupete/mbr") {
@@ -217,7 +225,6 @@ export default function useIoTConnection() {
           }
           if (topic == "sreesubha/gundlupete/oht-2") {
             if (iotData?.data?.io) {
-
               const levelSensor = iotData.data.io.s1;
               setTank3((prevData) => ({ ...prevData, levelSensor }));
             }
@@ -252,6 +259,60 @@ export default function useIoTConnection() {
               setDistrbutionTank5((prevData) => ({ ...prevData, iotData }));
             }
           }
+          if (topic == "sreesubha/gundlupete/mbr-6a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressureMbr((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
+          if (topic == "sreesubha/gundlupete/oht-1a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressure1((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
+          if (topic == "sreesubha/gundlupete/oht-2a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressure2((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
+          if (topic == "sreesubha/gundlupete/oht-3a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressure3((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
+          if (topic == "sreesubha/gundlupete/oht-4a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressure4((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
+          if (topic == "sreesubha/gundlupete/oht-5a") {
+            if (iotData?.data?.io) {
+              // const levelSensor = iotData.data.io.s1;
+              setDistributionPressure5((prevData) => ({
+                ...prevData,
+                iotData,
+              }));
+            }
+          }
         });
       } catch (err) {
         setError(`Failed to connect to IoT: ${err.message}`);
@@ -263,7 +324,6 @@ export default function useIoTConnection() {
     //
     connectToIoT();
     const interval = setInterval(checkAndRefreshCredentials, 4000);
-
   }, []);
 
   return {
@@ -277,6 +337,12 @@ export default function useIoTConnection() {
     distrbutionTank3,
     distrbutionTank4,
     distrbutionTank5,
+    distributionPressureMbr,
+    distributionPressure1,
+    distributionPressure2,
+    distributionPressure3,
+    distributionPressure4,
+    distributionPressure5,
     tank1,
     tank2,
     tank3,
