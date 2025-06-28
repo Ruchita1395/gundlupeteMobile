@@ -24,26 +24,26 @@ const useData = () => {
         if (item.data) {
           const jsonData = item.data;
           console.log("jsonData.....", jsonData);
-          setscenes(jsonData.haveri.scenes);// all the data
+          setscenes(jsonData.gundlupete.scenes);// all the data
 
-          const jackwellJsonData = jsonData.haveri.scenes[0];
+          const jackwellJsonData = jsonData?.gundlupete?.scenes[0];
           setjackwellJson(jackwellJsonData);
 
 
-          const wtpOutletJson_tank1Data = jsonData.haveri.scenes[0]?.tank1;
+          const wtpOutletJson_tank1Data = jsonData?.gundlupete?.scenes[0]?.tank1;
           setwtpOutletJson_tank1(wtpOutletJson_tank1Data); // only wtpOutletJson_tank1 data
 
-          const wtpOutletJson_tank2Data = jsonData.haveri.scenes[0]?.tank2;
+          const wtpOutletJson_tank2Data = jsonData?.gundlupete?.scenes[0]?.tank2;
           setwtpOutletJson_tank2(wtpOutletJson_tank2Data); // only screen one Tank2 data
 
-          const ipsJsonData = jsonData.haveri.scenes[1]?.tank1;
+          const ipsJsonData = jsonData?.gundlupete?.scenes[1]?.tank1;
           setipsJson(ipsJsonData); // only screen one Tank2 data
 
-          const inletData = jsonData.haveri.scenes[4];
+          const inletData = jsonData?.gundlupete?.scenes[4];
           //   console.log("inletData...", inletData);
           setwtpInletJson(inletData);
 
-          const distributionJsonData = jsonData.haveri.scenes[2];
+          const distributionJsonData = jsonData?.gundlupete?.scenes[2];
           setdistributionJson(distributionJsonData);
         }
         // if (data.statusCode === 200) {
