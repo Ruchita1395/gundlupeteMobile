@@ -71,7 +71,7 @@ function Card({ pipeData, mqttData, lastUpdatedTime, mqttInletData, sensorMbrdat
         break;
     }
 
-    console.log("modbusData", modbusData1);
+   
     const values = variableNames.map(
       (varName) => modbusData?.[varName] ?? 0.0
     );

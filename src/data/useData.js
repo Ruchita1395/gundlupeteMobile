@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import jsonData from "./jsonData1.json";
+// import jsonData from "./jsonData1.json";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
 
 const useData = () => {
@@ -14,7 +14,8 @@ const useData = () => {
   useEffect(() => {
     getConfiguration();
     async function getConfiguration() {
-      const configUrl = "https://h9256d8j84.execute-api.ap-south-1.amazonaws.com/dev/gundlupete-mobile-config";
+      const configUrl =
+        "https://h9256d8j84.execute-api.ap-south-1.amazonaws.com/dev/gundlupete-mobile-config";
       try {
         const response = await fetch(configUrl);
         if (!response.ok) throw new Error("Failed to fetch configuration");
@@ -24,16 +25,17 @@ const useData = () => {
         if (item.data) {
           const jsonData = item.data;
           console.log("jsonData.....", jsonData);
-          setscenes(jsonData.gundlupete.scenes);// all the data
+          setscenes(jsonData.gundlupete.scenes); // all the data
 
           const jackwellJsonData = jsonData?.gundlupete?.scenes[0];
           setjackwellJson(jackwellJsonData);
 
-
-          const wtpOutletJson_tank1Data = jsonData?.gundlupete?.scenes[0]?.tank1;
+          const wtpOutletJson_tank1Data =
+            jsonData?.gundlupete?.scenes[0]?.tank1;
           setwtpOutletJson_tank1(wtpOutletJson_tank1Data); // only wtpOutletJson_tank1 data
 
-          const wtpOutletJson_tank2Data = jsonData?.gundlupete?.scenes[0]?.tank2;
+          const wtpOutletJson_tank2Data =
+            jsonData?.gundlupete?.scenes[0]?.tank2;
           setwtpOutletJson_tank2(wtpOutletJson_tank2Data); // only screen one Tank2 data
 
           const ipsJsonData = jsonData?.gundlupete?.scenes[1]?.tank1;
@@ -46,25 +48,22 @@ const useData = () => {
           const distributionJsonData = jsonData?.gundlupete?.scenes[2];
           setdistributionJson(distributionJsonData);
         }
-        // if (data.statusCode === 200) {
-        //   console.log("data........", data);
-        //   // connectToIoT();  
-        // } else {
-        //   throw new Error("Error getting configuration");
-        // }
-
-
+       
       } catch (error) {
         console.error("Error fetching config:", error);
       }
     }
+  }, []);
 
-  }, [])
-
-  return { scenes, jackwellJson, wtpOutletJson_tank1, wtpOutletJson_tank2, ipsJson, wtpInletJson, distributionJson };
-
-
-
-}
+  return {
+    scenes,
+    jackwellJson,
+    wtpOutletJson_tank1,
+    wtpOutletJson_tank2,
+    ipsJson,
+    wtpInletJson,
+    distributionJson,
+  };
+};
 
 export default useData;
