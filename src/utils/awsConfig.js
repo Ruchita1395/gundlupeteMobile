@@ -10,6 +10,7 @@ export function getUserPoolObj() {
 }
 
 export async function getAWSCredentials(idToken, region) {
+  localStorage.setItem("idToken", idToken);
   AWS.config.region = region
   AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: "ap-south-1:f750196a-d766-4753-8a52-b297edc7c653",

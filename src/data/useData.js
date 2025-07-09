@@ -14,10 +14,16 @@ const useData = () => {
   useEffect(() => {
     getConfiguration();
     async function getConfiguration() {
+      const token = localStorage.getItem("idToken");
       const configUrl =
-        "https://h9256d8j84.execute-api.ap-south-1.amazonaws.com/dev/gundlupete-mobile-config";
+        "https://0ya1xlqhij.execute-api.ap-south-1.amazonaws.com/prod/gundlupete-mobile-config";
       try {
-        const response = await fetch(configUrl);
+        const response = await fetch(configUrl, {
+          method: 'GET',
+          headers: {
+            'Authorization': token,
+          }
+        });
         if (!response.ok) throw new Error("Failed to fetch configuration");
         const rawData = await response.json();
         console.log("raw data....", rawData);
